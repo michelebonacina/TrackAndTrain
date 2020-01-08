@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+.toggled.sidebar .sidebar-label {
+    margin-left: 0px;
+}
+
+.sidebar .sidebar-label {
+    margin-left: 6px;
+}

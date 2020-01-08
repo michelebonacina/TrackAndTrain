@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
     selector: '[tat-sidebar]',
     templateUrl: './sidebar.component.html',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit
 {
+
+    // icons initialization
+    faTachometerAlt = faTachometerAlt;
 
     constructor() { }
 
