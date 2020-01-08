@@ -12,7 +12,7 @@
             },
             "root": "",
             "sourceRoot": "src",
-            "prefix": "app",
+            "prefix": "tat",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
@@ -34,7 +34,8 @@
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.min.js",
-                            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+                            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+                            "src/assets/js/sb-admin.min.js"
                         ]
                     },
                     "configurations": {
