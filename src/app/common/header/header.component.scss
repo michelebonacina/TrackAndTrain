@@ -1,0 +1,36 @@
+@import 'variables';
+
+.navbar {
+  padding: 10px;
+  margin-bottom: 20px;
+
+  .navbar-brand {
+    margin-right: 30px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: $main-text-color;
+    font-weight: 500;
+  }
+
+  .nav-item {
+    font-size: 14px;
+  }
+
+  .form-inline {
+    margin-right: 20px;
+
+    .btn {
+      border-color: $main-color;
+      color: $main-text-color;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $reverse-color !important;
+        border-color: $reverse-color !important;
+        color: $reverse-text-color !important;
+        box-shadow: none;
+      }
+    }
+  }
+}

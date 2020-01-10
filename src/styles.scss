@@ -1,9 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables';
 
-.toggled.sidebar .sidebar-label {
-    margin-left: 0px;
-}
-
-.sidebar .sidebar-label {
-    margin-left: 6px;
+html, body {
+    color: $main-text-color;
 }
