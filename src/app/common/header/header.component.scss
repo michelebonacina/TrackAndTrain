@@ -1,27 +1,49 @@
-@import 'variables';
+@import "variables";
 
 .navbar {
   padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin-bottom: 20px;
+  background-color: $bar-color;
+  color: $bar-text-color;
 
   .navbar-brand {
     margin-right: 30px;
     font-size: 30px;
     letter-spacing: 1px;
-    color: $main-text-color;
+    color: $bar-text-color;
     font-weight: 500;
+    font-style: italic;
   }
 
   .nav-item {
     font-size: 14px;
   }
 
+  .nav-link {
+    &:link,
+    &:visited {
+      color: $bar-link-color !important;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $bar-link-over-color !important;
+    }
+  }
+
+  .nav-link.disabled {
+    color: $bar-link-disabled-color !important;
+  }
+
   .form-inline {
     margin-right: 20px;
 
     .btn {
-      border-color: $main-color;
-      color: $main-text-color;
+      color: $bar-button-color;
+      border-color: $bar-button-border-color;
 
       &:hover,
       &:focus,
