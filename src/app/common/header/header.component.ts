@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { faBell, faEnvelope, faSearch, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-    selector: '[tat-header]',
+    selector: 'tat-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
