@@ -29,13 +29,16 @@
                         ],
                         "styles": [
                             "src/styles.scss",
-                            "src/assets/css/sb-admin.min.css",
                             "node_modules/bootstrap/dist/css/bootstrap.min.css"
                         ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": [
+                                "src/app/styles"
+                            ]
+                        },
                         "scripts": [
                             "node_modules/jquery/dist/jquery.min.js",
-                            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-                            "src/assets/js/sb-admin.min.js"
+                            "node_modules/bootstrap/dist/js/bootstrap.min.js"                            
                         ]
                     },
                     "configurations": {

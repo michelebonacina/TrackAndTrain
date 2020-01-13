@@ -4,13 +4,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
-import { SidebarComponent } from './common/sidebar/sidebar.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        HeaderComponent,
-        SidebarComponent
+        HeaderComponent
     ],
     imports: [
         BrowserModule,
@@ -18,9 +16,7 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
     ],
     providers: [],
     bootstrap: [
-        AppComponent,
-        HeaderComponent,
-        SidebarComponent
+        AppComponent
     ]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'tat-root',
+    selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent
 {
-    title = 'TrackAndTrain';
+    title = 'Track&Train';
 }
