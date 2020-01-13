@@ -10,8 +10,8 @@ export class HeaderComponent implements OnInit
 
     title = "Track&Train";
 
-    constructor() { }
+    constructor() { } // constructor
 
-    ngOnInit() { }
+    ngOnInit() { } // ngOnInit
 
-}
+} // HeaderComponent

@@ -1,18 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 
+import { TrackModule } from './track/track.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+const routes: Routes = [
+    { path: '', component: DashboardComponent }
+]
 
 @NgModule({
     declarations: [
         AppComponent,
-        HeaderComponent
+        HeaderComponent,
+        DashboardComponent
     ],
     imports: [
         BrowserModule,
-        FontAwesomeModule
+        RouterModule.forRoot(routes),
+        FontAwesomeModule,
+        TrackModule
     ],
     providers: [],
     bootstrap: [
