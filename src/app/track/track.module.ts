@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TrackComponent } from './track.component';
 import { TrackListComponent } from './track-list/track-list.component';
+import { TrackListItemComponent } from './track-list-item/track-list-item.component';
 
 const routes: Routes = [
     {
@@ -18,7 +19,8 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         TrackComponent,
-        TrackListComponent
+        TrackListComponent,
+        TrackListItemComponent
     ],
     imports: [
         CommonModule,
