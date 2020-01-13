@@ -1,1 +1,18 @@
-<p>track-list works!</p>
+<table class="table table-hover">
+    <thead class="table-bar">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Description</th>
+            <th scope="col">Activity</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Distance</th>
+            <th scope="col">Ascent</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let track of tracks" tat-track-list-item>
+        </tr>
+    </tbody>
+</table>

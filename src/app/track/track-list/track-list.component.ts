@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class TrackListComponent implements OnInit
 {
 
+    tracks = [1, 2, 3, 4, 5];
+
     constructor() { } // contructor
 
     ngOnInit() { } // ngOnInit
