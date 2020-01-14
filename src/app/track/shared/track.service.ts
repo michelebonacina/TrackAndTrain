@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { Track } from './track.model';
+
 @Injectable({
     providedIn: 'root'
 })
@@ -8,14 +10,14 @@ export class TrackService
 {
 
     // == fields ==
-    private tracks = [
+    private tracks: Track[] = [
         {
             id: 1,
             date: "01-01-2020",
             time: "12:00",
             description: "Monte Misma",
             activity: "Mountain Bike",
-            duration: "3:30",
+            duration: 150,
             distance: 34,
             ascent: 600
         },
@@ -25,7 +27,7 @@ export class TrackService
             time: "12:00",
             description: "Monte Misma",
             activity: "Mountain Bike",
-            duration: "3:30",
+            duration: 150,
             distance: 34,
             ascent: 600
         },
@@ -35,7 +37,7 @@ export class TrackService
             time: "12:00",
             description: "Monte Misma",
             activity: "Mountain Bike",
-            duration: "3:30",
+            duration: 150,
             distance: 34,
             ascent: 600
         },
@@ -46,17 +48,19 @@ export class TrackService
 
     // == public methods ==
     // get all tracks
-    public getTracks(): any
+    public getTracks(): Observable<Track[]>
     {
-        const trackObservable = new Observable((observer) =>
-        {
-            setTimeout(
-                () =>
-                {
-                    observer.next(this.tracks);
-                }
-                , 2000)
-        });
+        const trackObservable = new Observable<Track[]>(
+            (observer) =>
+            {
+                setTimeout(
+                    () =>
+                    {
+                        observer.next(this.tracks);
+                    }
+                    , 2000)
+            }
+        );
         return trackObservable;
     } // getTracks
 

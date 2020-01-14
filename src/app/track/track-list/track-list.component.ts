@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { TrackService } from '../shared/track.service';
-import { Observable } from 'rxjs';
+import { Track } from '../shared/track.model';
 
 @Component({
     selector: 'tat-track-list',
@@ -12,7 +13,7 @@ export class TrackListComponent implements OnInit
 {
 
     // == fields ==
-    tracks: any[] = [];
+    tracks: Track[] = [];
 
     // == constructors ==
     constructor(private trackService: TrackService) { } // contructor
@@ -20,7 +21,7 @@ export class TrackListComponent implements OnInit
     // == lifecycle methods ==
     ngOnInit() {
         // load tracks
-        const trackObservable: Observable<any> = this.trackService.getTracks();
+        const trackObservable: Observable<Track[]> = this.trackService.getTracks();
         trackObservable.subscribe(
             (tracks) => {
                 this.tracks = tracks;
