@@ -13,9 +13,6 @@ export class HeaderComponent implements OnInit
     icTrain = faGrinBeamSweat;
     icDashboard = faTachometerAlt;
 
-    // == fields ==
-    title = "Track&Train";
-
     // == constructors ==
     constructor() { } // constructor
 

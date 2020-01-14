@@ -15,5 +15,22 @@ body {
     color: $main-link-over-color !important;
     text-decoration: none;
   }
-  
+
+  .btn.btn-primary {
+    color: $button-text-color;
+    background-color: $button-color;
+    border-color: $button-border-color;
+
+    &:link,
+    &:visited {
+      color: $button-link-color !important;
+    }
+    
+    &:hover,
+    &:focus,
+    &:active {
+      color: $button-link-over-color !important;
+      text-decoration: none;
+    }
+  }
 }
