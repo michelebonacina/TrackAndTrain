@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faRoute, faClock, faCalendar, faStopwatch, faShoePrints, faMountain } from '@fortawesome/free-solid-svg-icons';
 
 import { TrackService } from '../shared/track.service';
 import { Track } from '../shared/track.model';
@@ -11,6 +12,14 @@ import { Track } from '../shared/track.model';
 })
 export class TrackDetailComponent implements OnInit
 {
+    // == icons ==
+    icTrack = faRoute;
+    icTime = faClock;
+    icDate = faCalendar;
+    icDuration = faStopwatch;
+    icDistance = faShoePrints;
+    icAscent = faMountain;
+
     // == fields ==
     track: Track;
 
@@ -36,7 +45,7 @@ export class TrackDetailComponent implements OnInit
     getTrack(trackId: string)
     {
         this.trackService.getTrackById(trackId).subscribe(
-            (track) =>
+            (track: Track) =>
             {
                 this.track = track;
             },

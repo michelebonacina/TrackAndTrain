@@ -14,7 +14,6 @@
     letter-spacing: 1px;
     color: $bar-text-color;
     font-weight: 500;
-    font-style: italic;
   }
 
   .nav-item {
@@ -22,6 +21,12 @@
   }
 
   .nav-link {
+    text-align: center;
+    span {
+      font-size: 0.65rem;
+      display: block;
+    }
+
     &:link,
     &:visited {
       color: $bar-link-color !important;

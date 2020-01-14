@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faRoute, faGrinBeamSweat, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'tat-header',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit
 {
+    // == icons ==
+    icTrack = faRoute;
+    icTrain = faGrinBeamSweat;
+    icDashboard = faTachometerAlt;
 
     // == fields ==
     title = "Track&Train";

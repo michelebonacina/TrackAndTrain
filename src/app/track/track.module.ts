@@ -7,6 +7,7 @@ import { TrackListComponent } from './track-list/track-list.component';
 import { TrackListItemComponent } from './track-list-item/track-list-item.component';
 import { TrackService } from './shared/track.service';
 import { TrackDetailComponent } from './track-detail/track-detail.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // == routing ==
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
     ],
     imports: [
         CommonModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        FontAwesomeModule
     ],
     providers: [
         TrackService
