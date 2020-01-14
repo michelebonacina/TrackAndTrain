@@ -5,7 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { TrackComponent } from './track.component';
 import { TrackListComponent } from './track-list/track-list.component';
 import { TrackListItemComponent } from './track-list-item/track-list-item.component';
+import { TrackService } from './shared/track.service';
 
+// == routing ==
 const routes: Routes = [
     {
         path: 'track',
@@ -16,6 +18,7 @@ const routes: Routes = [
     }
 ]
 
+// == module definition ==
 @NgModule({
     declarations: [
         TrackComponent,
@@ -25,6 +28,9 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes)
+    ],
+    providers: [
+        TrackService
     ]
 })
-export class TrackModule { }
+export class TrackModule { } // TrackModule

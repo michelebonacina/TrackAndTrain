@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TrackService } from '../shared/track.service';
+import { Observable } from 'rxjs';
+
 @Component({
     selector: 'tat-track-list',
     templateUrl: './track-list.component.html',
@@ -8,41 +11,27 @@ import { Component, OnInit } from '@angular/core';
 export class TrackListComponent implements OnInit
 {
 
-    tracks = [
-        {
-            id: 1,
-            date: "01-01-2020",
-            time: "12:00",
-            description: "Monte Misma",
-            activity: "Mountain Bike",
-            duration: "3:30",
-            distance: 34,
-            ascent: 600
-        },
-        {
-            id: 2,
-            date: "02-01-2020",
-            time: "12:00",
-            description: "Monte Misma",
-            activity: "Mountain Bike",
-            duration: "3:30",
-            distance: 34,
-            ascent: 600
-        },
-        {
-            id: 3,
-            date: "03-01-2020",
-            time: "12:00",
-            description: "Monte Misma",
-            activity: "Mountain Bike",
-            duration: "3:30",
-            distance: 34,
-            ascent: 600
-        },
-    ];
+    // == fields ==
+    tracks: any[] = [];
 
-    constructor() { } // contructor
+    // == constructors ==
+    constructor(private trackService: TrackService) { } // contructor
 
-    ngOnInit() { } // ngOnInit
+    // == lifecycle methods ==
+    ngOnInit() {
+        // load tracks
+        const trackObservable: Observable<any> = this.trackService.getTracks();
+        trackObservable.subscribe(
+            (tracks) => {
+                this.tracks = tracks;
+            },
+            (error) => {
+
+            },
+            () => {
+
+            }
+        );
+     } // ngOnInit
 
 } // TrackListComponent

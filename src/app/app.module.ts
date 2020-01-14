@@ -9,10 +9,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+// == routing ==
 const routes: Routes = [
     { path: '', component: DashboardComponent }
 ]
 
+// == module definition ==
 @NgModule({
     declarations: [
         AppComponent,
@@ -30,4 +32,4 @@ const routes: Routes = [
         AppComponent
     ]
 })
-export class AppModule { }
+export class AppModule { } // AppModule

@@ -8,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit
 {
 
+    // == fields ==
     title = "Track&Train";
 
+    // == constructors ==
     constructor() { } // constructor
 
+    // == lifecycle methods ==
     ngOnInit() { } // ngOnInit
 
 } // HeaderComponent

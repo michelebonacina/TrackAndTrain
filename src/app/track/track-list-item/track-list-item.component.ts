@@ -8,11 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TrackListItemComponent implements OnInit
 {
 
-    // input variables
+    // == fields == 
     @Input() track: any; 
     
+    // == constructors ==
     constructor() { } // constructor
 
+    // == lifecycle methods ==
     ngOnInit() { } // ngOnInit
 
 } // TrackListItem

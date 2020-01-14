@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class TrackComponent implements OnInit
 {
 
+    // == constructors ==
     constructor() { } // constructor
 
+    // == lifecycle methods ==
     ngOnInit() { } // ngOnInit
 
 } // TrackComponent

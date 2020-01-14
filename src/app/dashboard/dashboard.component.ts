@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit
 {
 
+    // == constructors ==
     constructor() { } // constructor
 
+    // == lifecycle methods ==
     ngOnInit() { } // ngOnInit
 
 } // DashboardComponent
