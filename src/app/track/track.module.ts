@@ -6,6 +6,7 @@ import { TrackComponent } from './track.component';
 import { TrackListComponent } from './track-list/track-list.component';
 import { TrackListItemComponent } from './track-list-item/track-list-item.component';
 import { TrackService } from './shared/track.service';
+import { TrackDetailComponent } from './track-detail/track-detail.component';
 
 // == routing ==
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
         path: 'track',
         component: TrackComponent,
         children: [
-            { path: '', component: TrackListComponent }
+            { path: '', component: TrackListComponent },
+            { path: ':trackId', component: TrackDetailComponent },
         ]
     }
 ]
@@ -23,7 +25,8 @@ const routes: Routes = [
     declarations: [
         TrackComponent,
         TrackListComponent,
-        TrackListItemComponent
+        TrackListItemComponent,
+        TrackDetailComponent
     ],
     imports: [
         CommonModule,

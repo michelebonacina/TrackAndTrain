@@ -9,4 +9,4 @@ export class Track
     duration: number;
     distance: number;
     ascent: number;
-} // track
+} // Track

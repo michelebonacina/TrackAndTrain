@@ -1,8 +1,8 @@
 <th scope="row">{{track.id}}</th>
 <td>{{track.date}}</td>
 <td>{{track.time}}</td>
-<td>{{track.description}}</td>
-<td>{{track.activity}}</td>
+<td><a routerLink="/track/{{track.id}}">{{track.description}}</a></td>
+<td><a routerLink="/track/{{track.id}}">{{track.activity}}</a></td>
 <td>{{track.duration}}</td>
 <td>{{track.distance}}</td>
 <td>{{track.ascent}}</td>

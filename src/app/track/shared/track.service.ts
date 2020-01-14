@@ -13,30 +13,30 @@ export class TrackService
     private tracks: Track[] = [
         {
             id: 1,
-            date: "01-01-2020",
-            time: "12:00",
-            description: "Monte Misma",
-            activity: "Mountain Bike",
+            date: '01-01-2020',
+            time: '12:00',
+            description: 'Monte Misma',
+            activity: 'Mountain Bike',
             duration: 150,
             distance: 34,
             ascent: 600
         },
         {
             id: 2,
-            date: "02-01-2020",
-            time: "12:00",
-            description: "Monte Misma",
-            activity: "Mountain Bike",
+            date: '02-01-2020',
+            time: '12:00',
+            description: 'Monte Misma',
+            activity: 'Mountain Bike',
             duration: 150,
             distance: 34,
             ascent: 600
         },
         {
             id: 3,
-            date: "03-01-2020",
-            time: "12:00",
-            description: "Monte Misma",
-            activity: "Mountain Bike",
+            date: '03-01-2020',
+            time: '12:00',
+            description: 'Monte Misma',
+            activity: 'Mountain Bike',
             duration: 150,
             distance: 34,
             ascent: 600
@@ -63,5 +63,21 @@ export class TrackService
         );
         return trackObservable;
     } // getTracks
+
+    // get specific track by his id
+    public getTrackById(id: number) {
+        const trackObservable = new Observable<Track>(
+            (observer) =>
+            {
+                setTimeout(
+                    () =>
+                    {
+                        observer.next(this.tracks[1]);
+                    }
+                    , 2000)
+            }
+        );
+        return trackObservable;
+    } // getTrackById
 
 } // TrackService
