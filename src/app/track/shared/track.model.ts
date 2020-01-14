@@ -1,9 +1,10 @@
 export class Track
 {
     // == fields ==
-    id: number;
+    id: string;
     date: string;
     time: string;
+    title: string;
     description: string;
     activity: string;
     duration: number;

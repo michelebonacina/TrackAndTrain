@@ -12,30 +12,33 @@ export class TrackService
     // == fields ==
     private tracks: Track[] = [
         {
-            id: 1,
+            id: "1",
             date: '01-01-2020',
             time: '12:00',
-            description: 'Monte Misma',
+            title: 'Monte Misma',
+            description: '',
             activity: 'Mountain Bike',
             duration: 150,
             distance: 34,
             ascent: 600
         },
         {
-            id: 2,
+            id: "2",
             date: '02-01-2020',
             time: '12:00',
-            description: 'Monte Misma',
+            title: 'Monte Misma',
+            description: '',
             activity: 'Mountain Bike',
             duration: 150,
             distance: 34,
             ascent: 600
         },
         {
-            id: 3,
+            id: "3",
             date: '03-01-2020',
             time: '12:00',
-            description: 'Monte Misma',
+            title: 'Monte Misma',
+            description: '',
             activity: 'Mountain Bike',
             duration: 150,
             distance: 34,
@@ -65,7 +68,7 @@ export class TrackService
     } // getTracks
 
     // get specific track by his id
-    public getTrackById(id: number) {
+    public getTrackById(id: string) {
         const trackObservable = new Observable<Track>(
             (observer) =>
             {

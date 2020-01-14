@@ -33,7 +33,7 @@ export class TrackDetailComponent implements OnInit
 
     // == public methods ==
     // load a track by his id
-    getTrack(trackId: number)
+    getTrack(trackId: string)
     {
         this.trackService.getTrackById(trackId).subscribe(
             (track) =>
