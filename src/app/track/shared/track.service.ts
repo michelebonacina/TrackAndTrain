@@ -13,14 +13,15 @@ export class TrackService
     private tracks: Track[] = [
         {
             id: "1",
-            date: '01-01-2020',
+            date: '01/01/2020',
             time: '12:00',
             title: 'Monte Misma',
             description: '',
             activity: 'Mountain Bike',
             duration: 150,
             distance: 34,
-            ascent: 600
+            ascent: 600,
+            created: "05/01/2020 11:45"
         },
         {
             id: "2",
@@ -31,7 +32,8 @@ export class TrackService
             activity: 'Mountain Bike',
             duration: 150,
             distance: 34,
-            ascent: 600
+            ascent: 600,
+            created: "05/01/2020 11:45"
         },
         {
             id: "3",
@@ -42,7 +44,8 @@ export class TrackService
             activity: 'Mountain Bike',
             duration: 150,
             distance: 34,
-            ascent: 600
+            ascent: 600,
+            created: "05/01/2020 11:45"
         },
     ];
 

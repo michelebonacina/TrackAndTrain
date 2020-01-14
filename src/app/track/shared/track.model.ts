@@ -10,4 +10,5 @@ export class Track
     duration: number;
     distance: number;
     ascent: number;
+    created: string;
 } // Track
