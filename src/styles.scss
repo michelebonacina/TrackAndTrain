@@ -4,7 +4,8 @@ html,
 body {
   color: $main-text-color;
 
-  a:link {
+  a:link,
+  a:visited {
     color: $main-link-color !important;
   }
 
@@ -12,6 +13,7 @@ body {
   a:focus,
   a:active {
     color: $main-link-over-color !important;
+    text-decoration: none;
   }
   
 }

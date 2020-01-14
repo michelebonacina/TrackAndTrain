@@ -56,7 +56,7 @@ export class TrackService
     // get all tracks
     public getTracks(): Observable<Track[]>
     {
-        const trackObservable = new Observable<Track[]>(
+        return new Observable<Track[]>(
             (observer) =>
             {
                 setTimeout(
@@ -67,12 +67,11 @@ export class TrackService
                     , 2000)
             }
         );
-        return trackObservable;
     } // getTracks
 
     // get specific track by his id
     public getTrackById(id: string) {
-        const trackObservable = new Observable<Track>(
+        return new Observable<Track>(
             (observer) =>
             {
                 setTimeout(
@@ -83,7 +82,6 @@ export class TrackService
                     , 2000)
             }
         );
-        return trackObservable;
     } // getTrackById
 
 } // TrackService
