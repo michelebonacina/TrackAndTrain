@@ -1,0 +1,34 @@
+<div class="card" *ngIf="track">
+    <div class="card-header">
+        User - {{track.activity}}
+    </div>
+    <div class="card-body">
+
+        <div class="card border-0">
+            <div class="row no-gutters">
+                <div class="col-md-8">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted"><fa-icon [icon]="icDate"></fa-icon> {{track.date}} <fa-icon [icon]="icTime"></fa-icon> {{track.time}}</h6>
+                            <h5 class="card-title">{{track.title}}</h5>
+                            <p class="card-text">{{track.description}}</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><fa-icon [icon]="icDuration"></fa-icon> Duration: {{track.duration}}</li>
+                            <li class="list-group-item"><fa-icon [icon]="icDistance"></fa-icon> Distance: {{track.distance}}</li>
+                            <li class="list-group-item"><fa-icon [icon]="icAscent"></fa-icon> Ascent: {{track.ascent}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        Created: {{track.created}}
+    </div>
+</div>

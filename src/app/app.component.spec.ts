@@ -1,5 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './common/header/header.component';
 
 describe('AppComponent', () =>
 {
@@ -7,8 +9,12 @@ describe('AppComponent', () =>
     {
         TestBed.configureTestingModule({
             declarations: [
-                AppComponent
+                AppComponent,
+                HeaderComponent
             ],
+            imports: [
+                RouterTestingModule
+            ]
         }).compileComponents();
     }));
 
@@ -19,18 +25,4 @@ describe('AppComponent', () =>
         expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'TrackAndTrain'`, () =>
-    {
-        const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual('TrackAndTrain');
-    });
-
-    it('should render title', () =>
-    {
-        const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('.content span').textContent).toContain('TrackAndTrain app is running!');
-    });
 });

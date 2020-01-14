@@ -4,7 +4,8 @@ html,
 body {
   color: $main-text-color;
 
-  a:link {
+  a:link,
+  a:visited {
     color: $main-link-color !important;
   }
 
@@ -12,6 +13,24 @@ body {
   a:focus,
   a:active {
     color: $main-link-over-color !important;
+    text-decoration: none;
   }
-  
+
+  .btn.btn-primary {
+    color: $button-text-color;
+    background-color: $button-color;
+    border-color: $button-border-color;
+
+    &:link,
+    &:visited {
+      color: $button-link-color !important;
+    }
+    
+    &:hover,
+    &:focus,
+    &:active {
+      color: $button-link-over-color !important;
+      text-decoration: none;
+    }
+  }
 }
