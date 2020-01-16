@@ -1,0 +1,45 @@
+{
+    "activity": [
+        {
+            "code": "MTB",
+            "name": "Mountain Biking"
+        },
+        {
+            "code": "RUN",
+            "name": "Running"
+        },
+        {
+            "code": "HIKE",
+            "name": "Hiking"
+        }
+    ],
+    "track": [
+        {
+            "startTime": "2020-01-04 12:31:00.000Z",
+            "title": "Monte Misma",
+            "description": "Tour sul Misma",
+            "duration": 134,
+            "distance": 34.23,
+            "ascent": 560,
+            "_activityNum": 0
+        },
+        {
+            "startTime": "2020-01-04 10:01:07.000Z",
+            "title": "Ciclabile del Serio",
+            "description": "Giro rilassato lungo la ciclabile del Serio",
+            "duration": 121,
+            "distance": 42.5,
+            "ascent": 98,
+            "_activityNum": 0
+        },
+        {
+            "startTime": "2020-01-06 8:12:27.000Z",
+            "title": "Monte Valtrusa",
+            "description": "Escursione al Monte Valtrusa",
+            "duration": 97,
+            "distance": 8.70,
+            "ascent": 321,
+            "_activityNum": 2
+        }
+    ]
+}
