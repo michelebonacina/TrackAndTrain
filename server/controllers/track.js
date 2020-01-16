@@ -12,7 +12,7 @@ exports.list = function (request, response)
             // check for errors
             if (error)
             {
-                return response.status(400).json(error);
+                return response.status(422).send({ errors: [{ title: 'Track error!', details: 'Error loading Tracks' }] });
             }
             // return tracks
             return response.status(200).json(tracks);
@@ -33,10 +33,10 @@ exports.load = function (request, response)
             // check for errors
             if (error)
             {
-                return response.status(400).json(error);
+                return response.status(422).send({ errors: [{ title: 'Track error!', details: 'Could not find Track' }] });
             }
             // return track
             return response.status(200).json(track);
         }
     );
-}
+} // load
