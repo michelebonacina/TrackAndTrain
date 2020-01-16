@@ -1,10 +1,16 @@
+// == libraries ==
 const express = require('express');
 const mongoose = require('mongoose');
 
+// == applications ==
 const config = require('./configs');
-const FakeDb = require ('./fake-db');
+const FakeDb = require('./fake-db');
 
-// initialize database connection
+// == routes ==
+const trackRoutes = require('./routes/track');
+
+// == main application ==
+// initialize database
 const mongoDbUri = config.DB_URI;
 const mongoDbOptions = JSON.parse(config.DB_OPTIONS);
 mongoose.connect(mongoDbUri, mongoDbOptions)
@@ -15,8 +21,7 @@ mongoose.connect(mongoDbUri, mongoDbOptions)
             console.log('Database connected');
             // initialize db
             const fakeDb = new FakeDb();
-            fakeDb.deleteData();
-            fakeDb.loadData();
+            fakeDb.resetData();
             console.log('Sample data created');
         },
         (error) =>
@@ -28,12 +33,16 @@ mongoose.connect(mongoDbUri, mongoDbOptions)
     );
 
 // initialize application
-const app = express(); 
+const app = express();
+
+// initialize routes
+app.use('/api/v1/track', trackRoutes);
 
 // start server
 app.listen(process.env.PORT || 3001,
     function () 
     {
+        // server running
         console.log('Server started');
     }
 );

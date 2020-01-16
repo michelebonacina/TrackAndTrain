@@ -1,8 +1,11 @@
+// == data sources ==
 const fakeDbData = require('./fake-db-data.json');
 
+// == models ==
 const Activity = require('./models/activity');
 const Track = require('./models/track');
 
+// initialize db with test data
 class FakeDb
 {
 
@@ -44,12 +47,19 @@ class FakeDb
                 // create new track
                 const newTrack = new Track(track);
                 // set activity
-                newTrack.activity = activityList[0];
+                newTrack.activity = activityList[track._activityNum];
                 // save track
                 newTrack.save();
             }
         )
     } // loadData
+
+    // initialize database
+    async resetData()
+    {
+        await this.deleteData();
+        await this.loadData();
+    } // reset data
 
 } // FakeDb
 

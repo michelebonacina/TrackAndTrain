@@ -1,6 +1,8 @@
+// == libraries ==
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// == entities ==
 const trackSchema = new Schema(
     {
         startTime: {
