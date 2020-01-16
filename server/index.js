@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const config = require('./config');
+const config = require('./configs');
 const FakeDb = require ('./fake-db');
 
 // initialize database connection
