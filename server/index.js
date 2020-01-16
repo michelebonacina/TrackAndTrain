@@ -15,7 +15,9 @@ mongoose.connect(mongoDbUri, mongoDbOptions)
             console.log('Database connected');
             // initialize db
             const fakeDb = new FakeDb();
-            fakeDb.loadDbData();
+            fakeDb.deleteData();
+            fakeDb.loadData();
+            console.log('Sample data created');
         },
         (error) =>
         {
