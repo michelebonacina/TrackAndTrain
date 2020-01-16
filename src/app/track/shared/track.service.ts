@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import { Track } from './track.model';
 
@@ -8,78 +9,78 @@ import { Track } from './track.model';
 })
 export class TrackService
 {
-
     // == fields ==
-    private tracks: Track[] = [
-        {
-            id: "1",
-            date: '01/01/2020',
-            time: '12:00',
-            title: 'Monte Misma',
-            description: '',
-            activity: 'Mountain Bike',
-            duration: 150,
-            distance: 34,
-            ascent: 600,
-            created: "05/01/2020 11:45"
-        },
-        {
-            id: "2",
-            date: '02-01-2020',
-            time: '12:00',
-            title: 'Monte Misma',
-            description: '',
-            activity: 'Mountain Bike',
-            duration: 150,
-            distance: 34,
-            ascent: 600,
-            created: "05/01/2020 11:45"
-        },
-        {
-            id: "3",
-            date: '03-01-2020',
-            time: '12:00',
-            title: 'Monte Misma',
-            description: '',
-            activity: 'Mountain Bike',
-            duration: 150,
-            distance: 34,
-            ascent: 600,
-            created: "05/01/2020 11:45"
-        },
-    ];
 
     // == constructors ==
-    constructor() { } // constructor
+    constructor(private httpClient: HttpClient) { } // constructor
 
     // == public methods ==
+    // get track from api response
+    public getTrackFromAPI(apiTrack: any): Track
+    {
+        // get data from api track
+        let track = null;
+        if (apiTrack)
+        {
+            track = new Track();
+            track.id = apiTrack._id;
+            track.date = apiTrack.date;
+            track.time = "n.d."; // FIXME
+            track.title = apiTrack.title;
+            track.description = apiTrack.description;
+            track.activity = "n.d."; // TODO
+            track.duration = apiTrack.duration;
+            track.distance = apiTrack.distance;
+            track.ascent = apiTrack.ascent;
+            track.created = apiTrack.created; // FIXME
+        }
+        // return track
+        return track;
+    } // getTrackFromApi
+
     // get all tracks
     public getTracks(): Observable<Track[]>
     {
+        // return track list
         return new Observable<Track[]>(
-            (observer) =>
+            (observer) => 
             {
-                setTimeout(
-                    () =>
+                // list tracks
+                this.httpClient.get('/api/v1/track').subscribe(
+                    (findedTracks: any[]) =>
                     {
-                        observer.next(this.tracks);
+                        // create track list
+                        const tracks: Track[] = [];
+                        findedTracks.forEach(
+                            (findedTrack) =>
+                            {
+                                tracks.push(this.getTrackFromAPI(findedTrack));
+                            }
+                        );
+                        // return tracks
+                        observer.next(tracks);
+                        observer.complete();
                     }
-                    , 2000)
+                );
+
             }
         );
     } // getTracks
 
     // get specific track by his id
-    public getTrackById(id: string) {
+    public getTrackById(id: string): Observable<Track>
+    {
         return new Observable<Track>(
             (observer) =>
             {
-                setTimeout(
-                    () =>
+                // get track
+                this.httpClient.get('/api/v1/track/' + id).subscribe(
+                    (findedTrack: any) =>
                     {
-                        observer.next(this.tracks[1]);
+                        observer.next(this.getTrackFromAPI(findedTrack));
+                        observer.complete();
                     }
-                    , 2000)
+                );
             }
         );
     } // getTrackById
