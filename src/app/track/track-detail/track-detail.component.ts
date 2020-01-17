@@ -5,6 +5,13 @@ import { faRoute, faClock, faCalendar, faStopwatch, faShoePrints, faMountain } f
 import { TrackService } from '../shared/track.service';
 import { Track } from '../shared/track.model';
 
+/**
+ * Track detail component.
+ * Track data visualization.
+ * @author michele bonacina
+ * @since 0.0.1.
+ * @version 0.0.1.
+ */
 @Component({
     selector: 'tat-track-detail',
     templateUrl: './track-detail.component.html',
@@ -12,7 +19,7 @@ import { Track } from '../shared/track.model';
 })
 export class TrackDetailComponent implements OnInit
 {
-    // == icons ==
+    // icons declaration
     icTrack = faRoute;
     icTime = faClock;
     icDate = faCalendar;
@@ -20,18 +27,24 @@ export class TrackDetailComponent implements OnInit
     icDistance = faShoePrints;
     icAscent = faMountain;
 
-    // == fields ==
-    track: Track;
+    track: Track;   // track to be managed
 
-    // == constructors ==
+    /**
+     * Creates a new component.
+     * @param route route service for navigation management
+     * @param trackService track service
+     */
     constructor(
         private route: ActivatedRoute,
         private trackService: TrackService
     ) { } // constructors
 
-    // == lifecycle methods ==
+    /**
+     * Component initialization.
+     */
     ngOnInit()
     {
+        // load track to visualize
         this.route.params.subscribe(
             (params) =>
             {
@@ -40,18 +53,26 @@ export class TrackDetailComponent implements OnInit
         );
     } // ngOnInit
 
-    // == public methods ==
-    // load a track by his id
+    /**
+     * Load a track by his identifier.
+     * Calls service for retrieving full track data.
+     * @param trackId track identifier
+     */
     getTrack(trackId: string)
     {
+        // load full track data
         this.trackService.getTrackById(trackId).subscribe(
             (track: Track) =>
             {
+                // track loaded
                 this.track = track;
             },
-            (error) => { },
+            (error) =>
+            {
+                // TODO
+            },
             () => { }
         )
-    }
+    } // geTrack
 
 } // TrackDetailComponent

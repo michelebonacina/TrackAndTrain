@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Dashboard component.
+ * Dashboard data visualization.
+ * @author michele bonacina
+ * @since 0.0.1.
+ * @version 0.0.1.
+ */
 @Component({
     selector: 'tat-dashboard',
     templateUrl: './dashboard.component.html',
@@ -8,10 +15,14 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit
 {
 
-    // == constructors ==
+    /**
+     * Create a new component.
+     */
     constructor() { } // constructor
 
-    // == lifecycle methods ==
+    /**
+     * Component initialization.
+     */
     ngOnInit() { } // ngOnInit
 
 } // DashboardComponent

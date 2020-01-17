@@ -1,16 +1,12 @@
-// == libraries ==
 const express = require('express');
 const mongoose = require('mongoose');
 
-// == applications ==
 const config = require('./configs');
 const FakeDb = require('./fake-db');
 
-// == routes ==
 const trackRoutes = require('./routes/track');
 
-// == main application ==
-// initialize database
+// initialize database.
 const mongoDbUri = config.DB_URI;
 const mongoDbOptions = JSON.parse(config.DB_OPTIONS);
 mongoose.connect(mongoDbUri, mongoDbOptions)

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TrackComponent } from './track.component';
 import { TrackListComponent } from './track-list/track-list.component';
@@ -9,7 +10,7 @@ import { TrackService } from './shared/track.service';
 import { TrackDetailComponent } from './track-detail/track-detail.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-// == routing ==
+// track routing
 const routes: Routes = [
     {
         path: 'track',
@@ -21,7 +22,13 @@ const routes: Routes = [
     }
 ]
 
-// == module definition ==
+/**
+ * Track module.
+ * Main module for track management.
+ * @author michele bonacina
+ * @since 0.0.1.
+ * @version 0.0.1.
+ */
 @NgModule({
     declarations: [
         TrackComponent,
@@ -32,7 +39,8 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        FontAwesomeModule
+        FontAwesomeModule,
+        HttpClientModule
     ],
     providers: [
         TrackService

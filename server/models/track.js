@@ -1,11 +1,22 @@
-// == libraries ==
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// == entities ==
+/**
+ * Track.
+ * Defines a track.
+ * Fields:
+ * - startedAt: track initial date/time
+ * - title: track title
+ * - description: track description
+ * - activity: track activity type
+ * - duration: track duration, as a standard date
+ * - distance: track distance in kilometers
+ * - ascent: track ascent in meter
+ * - createdAt: track creation date/time
+ */
 const trackSchema = new Schema(
     {
-        startTime: {
+        startedAt: {
             type: Date,
             required: 'Track start date is mandatory'
         },
@@ -25,7 +36,7 @@ const trackSchema = new Schema(
             ref: 'Activity'
         },
         duration: {
-            type: Number,
+            type: Date,
             required: true
         },
         distance: {
@@ -36,7 +47,7 @@ const trackSchema = new Schema(
             type: Number,
             required: true
         },
-        creationTime: {
+        createdAt: {
             type: Date,
             required: true,
             default: Date.now
