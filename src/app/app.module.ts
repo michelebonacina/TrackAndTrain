@@ -8,13 +8,12 @@ import { TrackModule } from './track/track.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CommonService } from './common/shared/common.service';
 
-// == routing ==
 const routes: Routes = [
     { path: '', component: DashboardComponent }
 ]
 
-// == module definition ==
 @NgModule({
     declarations: [
         AppComponent,
@@ -27,7 +26,9 @@ const routes: Routes = [
         FontAwesomeModule,
         TrackModule
     ],
-    providers: [],
+    providers: [
+        CommonService
+    ],
     bootstrap: [
         AppComponent
     ]

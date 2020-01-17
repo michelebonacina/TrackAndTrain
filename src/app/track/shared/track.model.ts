@@ -1,14 +1,18 @@
+import { Time } from '@angular/common';
+
+/**
+ * Track data.
+ * This entity contains all information about a track.
+ */
 export class Track
 {
-    // == fields ==
-    id: string;
-    date: string;
-    time: string;
-    title: string;
-    description: string;
-    activity: string;
-    duration: number;
-    distance: number;
-    ascent: number;
-    created: string;
+    id: string;             // unique identifier
+    date: Date;             // starting date
+    title: string;          // title
+    description: string;    // description
+    activity: string;       // activity type
+    duration: Time;         // full duration time
+    distance: number;       // full distance in kilometers
+    ascent: number;         // full ascent in meters
+    createdAt: Date;        // creation date
 } // Track

@@ -10,6 +10,7 @@ export class TrackListItemComponent implements OnInit
 
     // == fields == 
     @Input() track: any; 
+    @Input() index: number;
     
     // == constructors ==
     constructor() { } // constructor

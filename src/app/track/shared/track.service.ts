@@ -3,18 +3,21 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Track } from './track.model';
+import { CommonService } from 'src/app/common/shared/common.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TrackService
 {
-    // == fields ==
+    /**
+     * Create a new track service.
+     * @param httpClient client for API invocation
+     */
+    constructor(
+        private httpClient: HttpClient
+    ) { } // constructor
 
-    // == constructors ==
-    constructor(private httpClient: HttpClient) { } // constructor
-
-    // == public methods ==
     // get track from api response
     public getTrackFromAPI(apiTrack: any): Track
     {
@@ -24,19 +27,35 @@ export class TrackService
         {
             track = new Track();
             track.id = apiTrack._id;
-            track.date = apiTrack.date;
-            track.time = "n.d."; // FIXME
+            track.date = apiTrack.startedAt;
             track.title = apiTrack.title;
             track.description = apiTrack.description;
             track.activity = "n.d."; // TODO
             track.duration = apiTrack.duration;
             track.distance = apiTrack.distance;
             track.ascent = apiTrack.ascent;
-            track.created = apiTrack.created; // FIXME
+            track.createdAt = apiTrack.createdAt;
         }
         // return track
         return track;
     } // getTrackFromApi
+
+    // set track from sending to api
+    public setTrackToAPI(track: Track): any
+    {
+        // set data to api track
+        let apiTrack = null;
+        if (track)
+        {
+            apiTrack = {};
+            apiTrack._id = track.id;
+            apiTrack.title = track.title;
+            apiTrack.description = track.description;
+            apiTrack.activity = "n.d."; // TODO
+        }
+        // return api track
+        return apiTrack;
+    } // getTrackFromApi    
 
     // get all tracks
     public getTracks(): Observable<Track[]>

@@ -1,8 +1,8 @@
-<th scope="row">{{track.id}}</th>
-<td>{{track.date}}</td>
-<td>{{track.time}}</td>
+<th class="text-right" scope="row">{{index}}</th>
+<td class="text-right">{{track.date | date : 'dd/MM/yyyy'}}</td>
+<td class="text-right">{{track.date | date : 'H:mm' }}</td>
 <td><a routerLink="/track/{{track.id}}">{{track.title}}</a></td>
 <td><a routerLink="/track/{{track.id}}">{{track.activity}}</a></td>
-<td>{{track.duration}}</td>
-<td>{{track.distance}}</td>
-<td>{{track.ascent}}</td>
+<td class="text-right">{{track.duration | date: 'H:mm:ss' : '+0000'}}</td>
+<td class="text-right">{{track.distance | number : '1.2-2'}} km</td>
+<td class="text-right">{{track.ascent | number : '1.0-0'}} m</td>

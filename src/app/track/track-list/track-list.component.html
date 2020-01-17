@@ -1,18 +1,18 @@
 <table class="table table-hover">
     <thead class="table-bar">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Date</th>
-            <th scope="col">Time</th>
+            <th class="text-right" class="text-right"scope="col">#</th>
+            <th class="text-right" scope="col">Date</th>
+            <th class="text-right" scope="col">Time</th>
             <th scope="col">Title</th>
             <th scope="col">Activity</th>
-            <th scope="col">Duration</th>
-            <th scope="col">Distance</th>
-            <th scope="col">Ascent</th>
+            <th class="text-right" scope="col">Duration</th>
+            <th class="text-right" scope="col">Distance</th>
+            <th class="text-right" scope="col">Ascent</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let track of tracks" tat-track-list-item [track]="track">
+        <tr *ngFor="let track of tracks; let i = index" tat-track-list-item [track]="track" [index]="i + 1">
         </tr>
     </tbody>
 </table>

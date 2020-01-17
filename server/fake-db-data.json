@@ -15,28 +15,28 @@
     ],
     "track": [
         {
-            "startTime": "2020-01-04 12:31:00.000Z",
+            "startedAt": "2020-01-02 12:31:00.000Z",
             "title": "Monte Misma",
             "description": "Tour sul Misma",
-            "duration": 134,
+            "duration": "1970-01-01 3:14:07.000Z",
             "distance": 34.23,
             "ascent": 560,
             "_activityNum": 0
         },
         {
-            "startTime": "2020-01-04 10:01:07.000Z",
+            "startedAt": "2020-01-04 10:01:07.000Z",
             "title": "Ciclabile del Serio",
             "description": "Giro rilassato lungo la ciclabile del Serio",
-            "duration": 121,
+            "duration": "1970-01-01 2:50:36.000Z",
             "distance": 42.5,
             "ascent": 98,
             "_activityNum": 0
         },
         {
-            "startTime": "2020-01-06 8:12:27.000Z",
+            "startedAt": "2020-01-06 8:12:27.000Z",
             "title": "Monte Valtrusa",
             "description": "Escursione al Monte Valtrusa",
-            "duration": 97,
+            "duration": "1970-01-01 1:24:15.000Z",
             "distance": 8.70,
             "ascent": 321,
             "_activityNum": 2

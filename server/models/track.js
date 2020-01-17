@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 // == entities ==
 const trackSchema = new Schema(
     {
-        startTime: {
+        startedAt: {
             type: Date,
             required: 'Track start date is mandatory'
         },
@@ -25,7 +25,7 @@ const trackSchema = new Schema(
             ref: 'Activity'
         },
         duration: {
-            type: Number,
+            type: Date,
             required: true
         },
         distance: {
@@ -36,7 +36,7 @@ const trackSchema = new Schema(
             type: Number,
             required: true
         },
-        creationTime: {
+        createdAt: {
             type: Date,
             required: true,
             default: Date.now
