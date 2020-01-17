@@ -1,8 +1,16 @@
-// == models ==
+/**
+ * Track controller.
+ * Contains operation for track management.
+ */
 const Track = require('../models/track');
 
-// == methods == 
-// list all tracks
+/**
+ * List all tracks.
+ * Return list of all tracks from database.
+ * @param request request from client
+ * @param response response to client
+ * @return send response with tracks array
+ */
 exports.list = function (request, response)
 {
     // load all tracks
@@ -20,8 +28,16 @@ exports.list = function (request, response)
     );
 } // list
 
-// load a track
-// - id: track identifier
+/**
+ * Load a track.
+ * Return full loaded track from database.
+ * The request contains params:
+ * - id: track identifier
+ * 
+ * @param request request from client
+ * @param response response to client
+ * @return send response with tracks array
+ */
 exports.load = function (request, response)
 {
     // get track id

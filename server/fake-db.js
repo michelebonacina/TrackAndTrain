@@ -1,15 +1,17 @@
-// == data sources ==
 const fakeDbData = require('./fake-db-data.json');
 
-// == models ==
 const Activity = require('./models/activity');
 const Track = require('./models/track');
 
-// initialize db with test data
+/**
+ * Initializes db with test data.
+ */
 class FakeDb
 {
 
-    // == constructors ==
+    /**
+     * Create a new fake db class.
+     */
     constructor()
     {
         // load fake data
@@ -17,15 +19,18 @@ class FakeDb
         this.tracks = fakeDbData.track;
     } // constructor
 
-    // == methods ==
-    // delete sample data from database
+    /**
+     * Delete all data from db.
+     */
     async deleteData()
     {
         await Track.deleteMany({});
         await Activity.deleteMany({});
     } // deleteData
 
-    // load sample data to database
+    /**
+     * Load test data into db.
+     */
     loadData()
     {
         // load activities
@@ -54,7 +59,10 @@ class FakeDb
         )
     } // loadData
 
-    // initialize database
+    /**
+     * Initializes db.
+     * Removes all data ad inserts new ones.
+     */
     async resetData()
     {
         await this.deleteData();

@@ -1,8 +1,13 @@
-// == libraries ==
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// == entities ==
+/**
+ * Track Activity.
+ * Defines a track activity.
+ * Fields:
+ * - code: activity unique code
+ * - name: activity name
+ */
 const activitySchema = new Schema(
     {
         code: {
