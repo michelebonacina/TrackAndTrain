@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Track component.
+ * Main component for track management.
+ * @author michele bonacina
+ * @since 0.0.1.
+ * @version 0.0.1.
+ */
 @Component({
     selector: 'tat-track',
     templateUrl: './track.component.html',
@@ -8,10 +15,14 @@ import { Component, OnInit } from '@angular/core';
 export class TrackComponent implements OnInit
 {
 
-    // == constructors ==
+    /**
+     * Creates a new component.
+     */
     constructor() { } // constructor
 
-    // == lifecycle methods ==
+    /**
+     * Component initialization.
+     */
     ngOnInit() { } // ngOnInit
 
 } // TrackComponent

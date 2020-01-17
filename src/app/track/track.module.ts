@@ -10,7 +10,7 @@ import { TrackService } from './shared/track.service';
 import { TrackDetailComponent } from './track-detail/track-detail.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-// == routing ==
+// track routing
 const routes: Routes = [
     {
         path: 'track',
@@ -22,7 +22,13 @@ const routes: Routes = [
     }
 ]
 
-// == module definition ==
+/**
+ * Track module.
+ * Main module for track management.
+ * @author michele bonacina
+ * @since 0.0.1.
+ * @version 0.0.1.
+ */
 @NgModule({
     declarations: [
         TrackComponent,

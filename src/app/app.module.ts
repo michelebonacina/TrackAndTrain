@@ -10,10 +10,18 @@ import { HeaderComponent } from './common/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommonService } from './common/shared/common.service';
 
+// application routing
 const routes: Routes = [
     { path: '', component: DashboardComponent }
 ]
 
+/**
+ * Application module.
+ * Main application module.
+ * @author michele bonacina
+ * @since 0.0.1.
+ * @version 0.0.1.
+ */
 @NgModule({
     declarations: [
         AppComponent,

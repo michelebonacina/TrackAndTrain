@@ -5,6 +5,13 @@ import { HttpClient } from '@angular/common/http';
 import { Track } from './track.model';
 import { CommonService } from 'src/app/common/shared/common.service';
 
+/**
+ * Track Service.
+ * Contains operation for track management.
+ * @author michele bonacina
+ * @since 0.0.1.
+ * @version 0.0.1.
+ */
 @Injectable({
     providedIn: 'root'
 })
@@ -18,7 +25,11 @@ export class TrackService
         private httpClient: HttpClient
     ) { } // constructor
 
-    // get track from api response
+    /**
+     * Convert track received from API response into a managed track.
+     * @param apiTrack track from API
+     * @return track
+     */
     public getTrackFromAPI(apiTrack: any): Track
     {
         // get data from api track
@@ -38,15 +49,21 @@ export class TrackService
         }
         // return track
         return track;
-    } // getTrackFromApi
+    } // getTrackFromAPI
 
-    // set track from sending to api
+    /**
+     * Convert a manged track into a track to be sended via API.
+     * @param track track to be converted
+     * @returns API track
+     */
     public setTrackToAPI(track: Track): any
     {
         // set data to api track
         let apiTrack = null;
         if (track)
         {
+            // track id defined
+            // only modificable field have to be sended to API
             apiTrack = {};
             apiTrack._id = track.id;
             apiTrack.title = track.title;
@@ -55,9 +72,12 @@ export class TrackService
         }
         // return api track
         return apiTrack;
-    } // getTrackFromApi    
+    } // getTrackFromAPI    
 
-    // get all tracks
+    /**
+     * Load all tracks from persistence.
+     * @returns observable tracks list
+     */
     public getTracks(): Observable<Track[]>
     {
         // return track list
@@ -86,7 +106,11 @@ export class TrackService
         );
     } // getTracks
 
-    // get specific track by his id
+    /**
+     * Load a track from persistence.
+     * @param id track indentifier
+     * @returns observable track
+     */
     public getTrackById(id: string): Observable<Track>
     {
         return new Observable<Track>(
