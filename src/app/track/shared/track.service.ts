@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Track } from './track.model';
-import { CommonService } from 'src/app/common/shared/common.service';
 
 /**
  * Track Service.
@@ -26,14 +25,14 @@ export class TrackService
     ) { } // constructor
 
     /**
-     * Convert track received from API response into a managed track.
+     * Convert a track received from API response into a managed track.
      * @param apiTrack track from API
      * @return track
      */
     public getTrackFromAPI(apiTrack: any): Track
     {
         // get data from api track
-        let track = null;
+        let track: Track = null;
         if (apiTrack)
         {
             track = new Track();
@@ -52,7 +51,7 @@ export class TrackService
     } // getTrackFromAPI
 
     /**
-     * Convert a manged track into a track to be sended via API.
+     * Convert a managed track into a track to be sended via API.
      * @param track track to be converted
      * @returns API track
      */
@@ -62,7 +61,7 @@ export class TrackService
         let apiTrack = null;
         if (track)
         {
-            // track id defined
+            // track is defined
             // only modificable field have to be sended to API
             apiTrack = {};
             apiTrack._id = track.id;
@@ -72,7 +71,7 @@ export class TrackService
         }
         // return api track
         return apiTrack;
-    } // getTrackFromAPI    
+    } // setTrackToAPI    
 
     /**
      * Load all tracks from persistence.
@@ -91,7 +90,7 @@ export class TrackService
                         // create track list
                         const tracks: Track[] = [];
                         findedTracks.forEach(
-                            (findedTrack) =>
+                            (findedTrack: any) =>
                             {
                                 tracks.push(this.getTrackFromAPI(findedTrack));
                             }

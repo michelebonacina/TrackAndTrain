@@ -31,7 +31,6 @@ export class TrackListComponent implements OnInit
 
     /**
      * Component initialization.
-     * 
      */
     ngOnInit()
     {

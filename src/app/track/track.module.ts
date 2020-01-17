@@ -20,7 +20,7 @@ const routes: Routes = [
             { path: ':trackId', component: TrackDetailComponent },
         ]
     }
-]
+];
 
 /**
  * Track module.
