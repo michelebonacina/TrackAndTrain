@@ -7,7 +7,7 @@ import { Time } from '@angular/common';
 export class Track
 {
     id: string;             // unique identifier
-    date: Date;             // starting date
+    startedAt: Date;        // starting date
     title: string;          // title
     description: string;    // description
     activity: string;       // activity type

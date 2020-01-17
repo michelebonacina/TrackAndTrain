@@ -38,7 +38,7 @@ export class TrackService
         {
             track = new Track();
             track.id = apiTrack._id;
-            track.date = apiTrack.startedAt;
+            track.startedAt = apiTrack.startedAt;
             track.title = apiTrack.title;
             track.description = apiTrack.description;
             track.activity = "n.d."; // TODO
