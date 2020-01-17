@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Track } from './track.model';
+import { ActivityService } from 'src/app/activity/shared/activity.service';
 
 /**
  * Track Service.
@@ -21,7 +22,8 @@ export class TrackService
      * @param httpClient client for API invocation
      */
     constructor(
-        private httpClient: HttpClient
+        private httpClient: HttpClient,
+        private activityService: ActivityService
     ) { } // constructor
 
     /**
@@ -40,7 +42,7 @@ export class TrackService
             track.startedAt = apiTrack.startedAt;
             track.title = apiTrack.title;
             track.description = apiTrack.description;
-            track.activity = "n.d."; // TODO
+            track.activity = this.activityService.getActivityFromAPI(apiTrack.activity);
             track.duration = apiTrack.duration;
             track.distance = apiTrack.distance;
             track.ascent = apiTrack.ascent;

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Track } from '../shared/track.model';
+
 /**
  * Track list item component.
  * Single track visualization in a track list.
@@ -15,7 +17,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TrackListItemComponent implements OnInit
 {
 
-    @Input() track: any;        // track to be visualized
+    @Input() track: Track;      // track to be visualized
     @Input() index: number;     // ordinal track index
 
     /**
