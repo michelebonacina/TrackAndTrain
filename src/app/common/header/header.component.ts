@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs } from '@fortawesome/free-solid-svg-icons';
 
+import { CommonService } from '../shared/common.service';
+
 /**
  * Header component.
  * Top bar with search and menu management.
@@ -16,18 +18,17 @@ import { faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs
 export class HeaderComponent implements OnInit
 {
 
-    // icons declaration
-    icTrack = faRoute;
-    icTrain = faGrinBeamSweat;
-    icDashboard = faTachometerAlt;
-    icOptions = faCogs;
-    icActivity = faPeopleCarry;
-    icSetup = faCog;
+    icons = {};
 
     /**
      * Create a new component.
+     * @param commonService service for generic operations
      */
-    constructor() { } // constructor
+    constructor(
+        private commonService: CommonService
+    ) {
+        this.icons = commonService.icons;
+     } // constructor
 
     /**
      * Component initialization.

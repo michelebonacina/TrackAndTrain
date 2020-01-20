@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs
+    , faBicycle } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * Service for general purpuse operations.
@@ -11,6 +13,19 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService
 {
+
+    icons: any = {
+        // logo
+        track: faRoute,
+        train: faGrinBeamSweat,
+        // header menu
+        dashboard: faTachometerAlt,
+        options: faCogs,
+        activity: faPeopleCarry,
+        setup: faCog,
+        // activity
+        bicycle: faBicycle
+    };
 
     /**
      * Create a new service.
