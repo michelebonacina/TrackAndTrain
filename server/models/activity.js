@@ -25,6 +25,9 @@ const activitySchema = new Schema(
         },
         iconName: {
             type: String
+        },
+        color: {
+            type: String
         }
     },
     {

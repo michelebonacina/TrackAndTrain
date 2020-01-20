@@ -3,17 +3,20 @@
         {
             "code": "MTB",
             "name": "Mountain Biking",
-            "iconName": "bicycle"
+            "iconName": "bicycle",
+            "color": "#00aa00"
         },
         {
             "code": "RUN",
             "name": "Running",
-            "iconName": "run"
+            "iconName": "run",
+            "color": "#aa0000"
         },
         {
             "code": "HIKE",
             "name": "Hiking",
-            "iconName": "hike"
+            "iconName": "hike",
+            "color": "#0000aa"
         }
     ],
     "track": [

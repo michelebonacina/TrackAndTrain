@@ -8,4 +8,5 @@ export class Activity
     code: string;       // code
     name: string;       // name
     iconName: string;   // icon name
+    color: string;      // screen color
 } // Activity

@@ -41,6 +41,7 @@ export class ActivityService
             activity.code = apiActivity.code;
             activity.name = apiActivity.name;
             activity.iconName = apiActivity.iconName;
+            activity.color = apiActivity.color;
         }
         // return activity
         return activity;
@@ -64,7 +65,7 @@ export class ActivityService
             apiActivity.code = activity.code;
             apiActivity.name = activity.name;
             apiActivity.iconName = activity.iconName;
-
+            apiActivity.color = activity.color;
         }
         // return api activity
         return apiActivity;
