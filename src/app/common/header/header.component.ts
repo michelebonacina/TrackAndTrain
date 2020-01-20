@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faRoute, faGrinBeamSweat, faTachometerAlt, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * Header component.
@@ -20,7 +20,9 @@ export class HeaderComponent implements OnInit
     icTrack = faRoute;
     icTrain = faGrinBeamSweat;
     icDashboard = faTachometerAlt;
-    icOptions = faCog;
+    icOptions = faCogs;
+    icActivity = faPeopleCarry;
+    icSetup = faCog;
 
     /**
      * Create a new component.
