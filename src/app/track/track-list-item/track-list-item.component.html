@@ -2,7 +2,7 @@
 <td class="text-right">{{track.startedAt | date : 'dd/MM/yyyy'}}</td>
 <td class="text-right">{{track.startedAt | date : 'H:mm' }}</td>
 <td><a routerLink="/track/{{track.id}}">{{track.title}}</a></td>
-<td><a routerLink="/track/{{track.id}}">{{track.activity?.name}}</a></td>
+<td><a routerLink="/track/{{track.id}}"><fa-icon [icon]="icons[track.activity?.iconName]"></fa-icon>{{track.activity?.name}}</a></td>
 <td class="text-right">{{track.duration | date: 'H:mm:ss' : '+0000'}}</td>
 <td class="text-right">{{track.distance | number : '1.2-2'}} km</td>
 <td class="text-right">{{track.ascent | number : '1.0-0'}} m</td>
