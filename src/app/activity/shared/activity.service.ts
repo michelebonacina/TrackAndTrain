@@ -40,6 +40,7 @@ export class ActivityService
             activity.id = apiActivity._id;
             activity.code = apiActivity.code;
             activity.name = apiActivity.name;
+            activity.iconName = apiActivity.iconName;
         }
         // return activity
         return activity;
@@ -60,8 +61,10 @@ export class ActivityService
             // only modificable field have to be sended to API
             apiActivity = {};
             apiActivity._id = activity.id;
-            apiActivity.name = activity.code;
-            apiActivity.code = activity.name;
+            apiActivity.code = activity.code;
+            apiActivity.name = activity.name;
+            apiActivity.iconName = activity.iconName;
+
         }
         // return api activity
         return apiActivity;

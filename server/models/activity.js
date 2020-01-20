@@ -22,6 +22,9 @@ const activitySchema = new Schema(
             required: true,
             minlength: [2, 'Activity name min length is 2 chars'],
             maxlength: [50, 'Activity name max length is 50 chars']
+        },
+        iconName: {
+            type: String
         }
     },
     {

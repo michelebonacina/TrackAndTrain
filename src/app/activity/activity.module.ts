@@ -7,6 +7,7 @@ import { ActivityComponent } from './activity.component';
 import { ActivityListComponent } from './activity-list/activity-list.component';
 import { ActivityListItemComponent } from './activity-list-item/activity-list-item.component';
 import { ActivityService } from './shared/activity.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // activity routing
 const routes: Routes = [
@@ -35,7 +36,8 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        HttpClientModule
+        HttpClientModule,
+        FontAwesomeModule
     ],
     providers: [
         ActivityService

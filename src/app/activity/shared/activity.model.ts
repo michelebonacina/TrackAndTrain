@@ -4,7 +4,8 @@
  */
 export class Activity
 {
-    id: string;         // acitivity identifier
-    code: string;       // activity code
-    name: string;       // activity name
+    id: string;         // identifier
+    code: string;       // code
+    name: string;       // name
+    iconName: string;   // icon name
 } // Activity

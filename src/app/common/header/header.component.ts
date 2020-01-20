@@ -18,7 +18,7 @@ import { CommonService } from '../shared/common.service';
 export class HeaderComponent implements OnInit
 {
 
-    icons = {};
+    icons: any = {};    // fontawesome icons
 
     /**
      * Create a new component.
@@ -26,9 +26,10 @@ export class HeaderComponent implements OnInit
      */
     constructor(
         private commonService: CommonService
-    ) {
-        this.icons = commonService.icons;
-     } // constructor
+    )
+    {
+        this.icons = this.commonService.icons;
+    } // constructor
 
     /**
      * Component initialization.

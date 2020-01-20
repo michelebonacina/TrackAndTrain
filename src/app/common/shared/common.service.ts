@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs
-    , faBicycle } from '@fortawesome/free-solid-svg-icons';
+import
+{
+    faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs
+    , faBicycle, faRunning, faHiking
+} from '@fortawesome/free-solid-svg-icons';
 
 /**
  * Service for general purpuse operations.
@@ -24,7 +27,9 @@ export class CommonService
         activity: faPeopleCarry,
         setup: faCog,
         // activity
-        bicycle: faBicycle
+        bicycle: faBicycle,
+        run: faRunning,
+        hike: faHiking
     };
 
     /**

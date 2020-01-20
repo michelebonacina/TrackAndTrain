@@ -2,15 +2,18 @@
     "activity": [
         {
             "code": "MTB",
-            "name": "Mountain Biking"
+            "name": "Mountain Biking",
+            "iconName": "bicycle"
         },
         {
             "code": "RUN",
-            "name": "Running"
+            "name": "Running",
+            "iconName": "run"
         },
         {
             "code": "HIKE",
-            "name": "Hiking"
+            "name": "Hiking",
+            "iconName": "hike"
         }
     ],
     "track": [
