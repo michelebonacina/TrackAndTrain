@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit
         private commonService: CommonService
     )
     {
+        // initialize icons
         this.icons = this.commonService.icons;
     } // constructor
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import
 {
     faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs
-    , faBicycle, faRunning, faHiking
+    , faBicycle, faRunning, faHiking, faUser, faClock, faCalendar, faStopwatch, faMountain, faShoePrints
 } from '@fortawesome/free-solid-svg-icons';
 
 /**
@@ -26,10 +26,17 @@ export class CommonService
         options: faCogs,
         activity: faPeopleCarry,
         setup: faCog,
+        user: faUser,
         // activity
         bicycle: faBicycle,
         run: faRunning,
-        hike: faHiking
+        hike: faHiking,
+        // track
+        time: faClock,
+        date: faCalendar,
+        duration: faStopwatch,
+        distance: faShoePrints,
+        ascent: faMountain
     };
 
     /**
