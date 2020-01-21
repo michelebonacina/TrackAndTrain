@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ActivityService } from './shared/activity.service';
 import { ActivityComponent } from './activity.component';
 import { ActivityListComponent } from './activity-list/activity-list.component';
 import { ActivityListItemComponent } from './activity-list-item/activity-list-item.component';
-import { ActivityService } from './shared/activity.service';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ActivityCreateComponent } from './activity-create/activity-create.component';
 
 // activity routing
 const routes: Routes = [
@@ -15,7 +17,8 @@ const routes: Routes = [
         path: 'activity',
         component: ActivityComponent,
         children: [
-            { path: '', component: ActivityListComponent }
+            { path: '', component: ActivityListComponent },
+            { path: 'new', component: ActivityCreateComponent }
         ]
     }
 ];
@@ -31,13 +34,16 @@ const routes: Routes = [
     declarations: [
         ActivityComponent,
         ActivityListComponent,
-        ActivityListItemComponent
+        ActivityListItemComponent,
+        ActivityCreateComponent
     ],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
         HttpClientModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [
         ActivityService

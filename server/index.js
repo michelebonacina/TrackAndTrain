@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const config = require('./configs');
 const FakeDb = require('./fake-db');
@@ -31,6 +32,9 @@ mongoose.connect(mongoDbUri, mongoDbOptions)
 
 // initialize application
 const app = express();
+
+// activate request body parser
+app.use(bodyParser.json());
 
 // initialize routes
 app.use('/api/v1/track', trackRoutes);

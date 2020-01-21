@@ -11,6 +11,6 @@ router.get('', TrackController.list);
 /**
  * Load a track by his identifier.
  */
-router.get('/:id', TrackController.load);
+router.get('/:id', TrackController.loadById);
 
 module.exports = router;

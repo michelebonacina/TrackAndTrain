@@ -8,4 +8,9 @@ const ActivityController = require('../controllers/activity');
  */
 router.get('', ActivityController.list);
 
+/**
+ * Create a new activity.
+ */
+router.post('', ActivityController.create);
+
 module.exports = router;

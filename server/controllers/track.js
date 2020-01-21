@@ -38,7 +38,7 @@ exports.list = function (request, response)
  * @param response response to client
  * @return send response with tracks array
  */
-exports.load = function (request, response)
+exports.loadById = function (request, response)
 {
     // get track id
     const trackId = request.params.id;

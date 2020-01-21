@@ -52,7 +52,7 @@ export class ActivityService
      * @param activity activity to be converted
      * @returns API activity
      */
-    public setActivityToAPI(activity: Activity): any
+    public getAPIFromActivity(activity: Activity): any
     {
         // set data to api activity
         let apiActivity = null;
@@ -73,7 +73,7 @@ export class ActivityService
 
     /**
      * Load all activities from persistence.
-     * @returns observable activities list
+     * @returns observable for activities list
      */
     public getActivities(): Observable<Activity[]>
     {
@@ -104,9 +104,9 @@ export class ActivityService
     } // getActivities
 
     /**
-     * Load aan activity from persistence.
+     * Load an activity from persistence.
      * @param id activity indentifier
-     * @returns observable activity
+     * @returns observable for activity loaded
      */
     public getActivityById(id: string): Observable<Activity>
     {
@@ -124,5 +124,28 @@ export class ActivityService
             }
         );
     } // getActivityById
+
+
+    /**
+     * Create a new activity into persistence.
+     * @param activity activity to be created
+     * @returns observable for activity creation
+     */
+    public createActivity(activity: Activity): Observable<Activity>
+    {
+        return new Observable<Activity>(
+            (observer) =>
+            {
+                // get activity
+                this.httpClient.post('/api/v1/activity', this.getAPIFromActivity(activity)).subscribe(
+                    (createdActivity: any) =>
+                    {
+                        observer.next(this.getActivityFromAPI(createdActivity));
+                        observer.complete();
+                    }
+                );
+            }
+        );
+    } // createActivity
 
 } // ActivityService
