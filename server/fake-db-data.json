@@ -1,4 +1,11 @@
 {
+    "user": [
+        {
+            "username": "Test user",
+            "email": "test@nomail.com",
+            "password": "testpassword"
+        }
+    ],
     "activity": [
         {
             "code": "MTB",

@@ -7,6 +7,7 @@ const FakeDb = require('./fake-db');
 
 const trackRoutes = require('./routes/track');
 const activityRoutes = require('./routes/activity');
+const userRoutes = require('./routes/user');
 
 // initialize database.
 const mongoDbUri = config.DB_URI;
@@ -39,6 +40,7 @@ app.use(bodyParser.json());
 // initialize routes
 app.use('/api/v1/track', trackRoutes);
 app.use('/api/v1/activity', activityRoutes);
+app.use('/api/v1/user', userRoutes);
 
 // start server
 app.listen(process.env.PORT || 3001,

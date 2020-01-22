@@ -1,6 +1,6 @@
 /**
  * Activity controller.
- * Contains operation for avtivity management.
+ * Contains operation for activity management.
  */
 const Activity = require('../models/activity');
 
@@ -33,7 +33,7 @@ exports.list = function (request, response)
  * Create a new activity.
  * Gets activity data from request.
  * Checks there not other activity with the same code.
- * Save actviity.
+ * Create new activity.
  * @param request request from client
  * @param response response to client
  * @return send response with created activity

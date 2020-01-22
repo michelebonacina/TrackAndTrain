@@ -1,5 +1,6 @@
 const fakeDbData = require('./fake-db-data.json');
 
+const User = require('./models/user');
 const Activity = require('./models/activity');
 const Track = require('./models/track');
 
@@ -15,6 +16,7 @@ class FakeDb
     constructor()
     {
         // load fake data
+        this.user = fakeDbData.user;
         this.activities = fakeDbData.activity;
         this.tracks = fakeDbData.track;
     } // constructor
@@ -24,8 +26,9 @@ class FakeDb
      */
     async deleteData()
     {
-        await Track.deleteMany({});
+        await User.deleteMany({});
         await Activity.deleteMany({});
+        await Track.deleteMany({});
     } // deleteData
 
     /**
@@ -33,6 +36,19 @@ class FakeDb
      */
     loadData()
     {
+        // load users
+        const userList = [];
+        this.user.forEach(
+            (user) =>
+            {
+                // create a new user
+                const newUser = new User(user);
+                // save user
+                newUser.save();
+                // store in user list
+                userList.push(newUser);
+            }
+        );
         // load activities
         const activityList = [];
         this.activities.forEach(
