@@ -1,4 +1,4 @@
-import { Time } from '@angular/common';
+import { Activity } from 'src/app/activity/shared/activity.model';
 
 /**
  * Track data.
@@ -10,8 +10,8 @@ export class Track
     startedAt: Date;        // starting date
     title: string;          // title
     description: string;    // description
-    activity: string;       // activity type
-    duration: Time;         // full duration time
+    activity: Activity;     // activity type
+    duration: Date;         // full duration time
     distance: number;       // full distance in kilometers
     ascent: number;         // full ascent in meters
     createdAt: Date;        // creation date

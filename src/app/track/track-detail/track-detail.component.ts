@@ -4,6 +4,7 @@ import { faRoute, faClock, faCalendar, faStopwatch, faShoePrints, faMountain } f
 
 import { TrackService } from '../shared/track.service';
 import { Track } from '../shared/track.model';
+import { CommonService } from 'src/app/common/shared/common.service';
 
 /**
  * Track detail component.
@@ -19,24 +20,20 @@ import { Track } from '../shared/track.model';
 })
 export class TrackDetailComponent implements OnInit
 {
-    // icons declaration
-    icTrack = faRoute;
-    icTime = faClock;
-    icDate = faCalendar;
-    icDuration = faStopwatch;
-    icDistance = faShoePrints;
-    icAscent = faMountain;
 
-    track: Track;   // track to be managed
+    track: Track;       // track to be managed
+    icons: any = {};    // fontawesome icons
 
     /**
      * Creates a new component.
      * @param route route service for navigation management
      * @param trackService track service
+     * @param commonService service for generic operations
      */
     constructor(
         private route: ActivatedRoute,
-        private trackService: TrackService
+        private trackService: TrackService,
+        private commonService: CommonService
     ) { } // constructors
 
     /**
@@ -44,6 +41,8 @@ export class TrackDetailComponent implements OnInit
      */
     ngOnInit()
     {
+        // initialize icons
+        this.icons = this.commonService.icons;
         // load track to visualize
         this.route.params.subscribe(
             (params) =>

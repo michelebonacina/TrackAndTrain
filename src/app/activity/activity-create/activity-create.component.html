@@ -1,0 +1,36 @@
+<form [formGroup]="activityForm">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="code">Code</label>
+                <input type="text" class="form-control" id="code" placeholder="code" formControlName="code">
+                <small id="codeInfo" class="form-text text-muted">Insert activity code. It has to be unique.</small>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="name" formControlName="name">
+                <small id="nameInfo" class="form-text text-muted">Insert activity name.</small>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="iconName">Icon name</label>
+                <input type="text" class="form-control" id="iconName" placeholder="Icon name"
+                    formControlName="iconName">
+                <small id="iconNameInfo" class="form-text text-muted">Insert activity icon name.</small>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="color">Color</label>
+                <input type="text" class="form-control" id="color" placeholder="color" formControlName="color">
+                <small id="colorInfo" class="form-text text-muted">Insert activity color.</small>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="create()">Create</button>
+</form>

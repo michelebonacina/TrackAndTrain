@@ -43,6 +43,14 @@
     color: $bar-link-disabled-color !important;
   }
 
+  .dropdown-item.disabled {
+      color: $menu-link-disabled-color !important;
+  }
+
+  .dropdown-item .ng-fa-icon {
+      margin-right: 10px;
+  }
+
   .form-inline {
     margin-right: 20px;
 

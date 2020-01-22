@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const config = require('./configs');
 const FakeDb = require('./fake-db');
 
 const trackRoutes = require('./routes/track');
+const activityRoutes = require('./routes/activity');
 
 // initialize database.
 const mongoDbUri = config.DB_URI;
@@ -31,8 +33,12 @@ mongoose.connect(mongoDbUri, mongoDbOptions)
 // initialize application
 const app = express();
 
+// activate request body parser
+app.use(bodyParser.json());
+
 // initialize routes
 app.use('/api/v1/track', trackRoutes);
+app.use('/api/v1/activity', activityRoutes);
 
 // start server
 app.listen(process.env.PORT || 3001,

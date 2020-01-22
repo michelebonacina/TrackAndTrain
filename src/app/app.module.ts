@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommonService } from './common/shared/common.service';
+import { ActivityModule } from './activity/activity.module';
 
 // application routing
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
         BrowserModule,
         RouterModule.forRoot(routes),
         FontAwesomeModule,
-        TrackModule
+        TrackModule,
+        ActivityModule
     ],
     providers: [
         CommonService
