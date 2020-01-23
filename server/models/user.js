@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt');
  * - username: user name
  * - email: user email, used also al login
  * - password: user password
+ * - tracks: list of tracks created by the user
  */
 const userSchema = new Schema(
     {
@@ -31,7 +32,13 @@ const userSchema = new Schema(
             required: true,
             minlength: [4, 'User password min length is 4 chars'],
             maxlength: [32, 'User password max length is 32 chars'],
-        }
+        },
+        tracks: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Track'
+            }
+        ]
     },
     {
         collection: 'user'

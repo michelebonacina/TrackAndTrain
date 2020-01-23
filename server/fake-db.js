@@ -43,8 +43,6 @@ class FakeDb
             {
                 // create a new user
                 const newUser = new User(user);
-                // save user
-                newUser.save();
                 // store in user list
                 userList.push(newUser);
             }
@@ -59,9 +57,10 @@ class FakeDb
                 // save activity
                 newActivity.save();
                 // store activity list
-                activityList.push(newActivity);
+                activityList.push(newActivity);                
             }
         );
+        // load track
         this.tracks.forEach(
             (track) =>
             {
@@ -69,10 +68,21 @@ class FakeDb
                 const newTrack = new Track(track);
                 // set activity
                 newTrack.activity = activityList[track._activityNum];
+                // set user
+                newTrack.user = userList[0];
+                userList[0].tracks.push(newTrack);
                 // save track
                 newTrack.save();
             }
-        )
+        );
+        // save user
+        userList.forEach(
+            (newUser) =>
+            {
+                // save user
+                newUser.save();
+            }
+        );
     } // loadData
 
     /**
