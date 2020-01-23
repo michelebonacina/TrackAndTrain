@@ -121,6 +121,16 @@ exports.register = function (request, response)
     );
 } // register
 
+/**
+ * Checks if the user is authenticated.
+ * Recovers the token passed by the client into the header, decode it and extract the user info (id and username).
+ * Search for the user and if finded puts it into the response to be used by other functions.
+ * If something goes wrong returns an error.
+ * @param request request from client
+ * @param response response to client
+ * @param next function for calling new middleware step
+ * @return send response with errors to the client
+ */
 exports.authenticationMiddleware = function (request, response, next)
 {
     // get passed token
@@ -128,18 +138,44 @@ exports.authenticationMiddleware = function (request, response, next)
     // check token
     if (token)
     {
+        // get user data from token
         const user = parseToken(token);
+        // load user
+        User.findById(user.userId,
+            function (error, user)
+            {
+                // check for errors
+                if (error)
+                {
+                    // error during user save
+                    return response.status(500).send({ errors: MongooseHelper.normalizeError(error.errors) });
+                }
+                // check user
+                if (user)
+                {
+                    // put user in response
+                    response.locals.user = user;
+                    next();
+                }
+                else
+                {
+                    // user not found
+                    return response.status(401).send({ errors: [{ title: 'Not authenticated', details: 'You need to login to get access' }] });
+                }
+            }
+        );
     }
     else
     {
         // password is wrong
-        return response.status(401).send({ errors: [{ title: 'Not authenticated', details: 'You need to login to ge access' }] });
+        return response.status(401).send({ errors: [{ title: 'Not authenticated', details: 'You need to login to get access' }] });
     }
 
 } // authenticationMiddleware
 
 /**
  * Decode and parse token for getting user data.
+ * The token contains an object with user id and username.
  * @param token encoded token
  * @returns decoded token
  */
