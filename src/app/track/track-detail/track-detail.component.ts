@@ -21,8 +21,9 @@ import { CommonService } from 'src/app/common/shared/common.service';
 export class TrackDetailComponent implements OnInit
 {
 
-    track: Track;       // track to be managed
-    icons: any = {};    // fontawesome icons
+    track: Track;               // track to be managed
+    trackIcons: any = {};       // fontawesome track icons
+    activityIcons: any = {};    // fontawesome activity icons
 
     /**
      * Creates a new component.
@@ -42,7 +43,8 @@ export class TrackDetailComponent implements OnInit
     ngOnInit()
     {
         // initialize icons
-        this.icons = this.commonService.icons;
+        this.trackIcons = this.commonService.icons.track;
+        this.activityIcons = this.commonService.icons.activity;
         // load track to visualize
         this.route.params.subscribe(
             (params) =>
@@ -75,3 +77,5 @@ export class TrackDetailComponent implements OnInit
     } // geTrack
 
 } // TrackDetailComponent
+
+

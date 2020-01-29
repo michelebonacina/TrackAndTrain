@@ -30,7 +30,7 @@ export class TrackListItemComponent implements OnInit
     constructor(
         private commonService: CommonService
     ) {
-        this.icons = this.commonService.icons;
+        this.icons = this.commonService.icons.activity;
      } // constructor
 
     /**
