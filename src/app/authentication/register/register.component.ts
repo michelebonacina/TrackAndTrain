@@ -39,12 +39,12 @@ export class RegisterComponent implements OnInit
      */
     ngOnInit()
     {
-        // create activity form
+        // create registration form
         this.registerForm = this.formBuilder.group(
             {
                 username: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(32)]],
-                email: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(128)]],
-                password: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(32)]],
+                email: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(128)]], // TODO Validator.pattern
+                password: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(32)]], // TODO Validator passwordConfirm
                 passwordConfirm: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(32)]]
             }
         );
@@ -58,15 +58,9 @@ export class RegisterComponent implements OnInit
         if (this.registerForm.valid)
         {
             // the form data are correct
-            // create user to register
-            const authUser = new AuthUser();
-            authUser.username = this.registerForm.controls.username.value;
-            authUser.email = this.registerForm.controls.email.value;
-            authUser.password = this.registerForm.controls.password.value;
-            authUser.passwordConfirm = this.registerForm.controls.passwordConfirm.value;
             // register user
-            this.authenticationService.register(authUser).subscribe(
-                (newAuthUser: AuthUser) =>
+            this.authenticationService.register(this.registerForm.value).subscribe(
+                () =>
                 {
                     // user registered
                     // go to confirm page

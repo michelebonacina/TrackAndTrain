@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import
 {
-    faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs
-    , faBicycle, faRunning, faHiking, faUser, faClock, faCalendar, faStopwatch, faMountain, faShoePrints, faSkiingNordic, faUserCircle, faSignInAlt, faIdCard
+    faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs, faIdCard
+    , faBicycle, faRunning, faHiking, faUser, faClock, faCalendar, faStopwatch, faMountain, faShoePrints, faSkiingNordic, faUserCircle, faSignInAlt, faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 /**
@@ -28,7 +28,8 @@ export class CommonService
             setup: faCog,
             user: faUserCircle,
             login: faSignInAlt,
-            register: faIdCard
+            register: faIdCard,
+            logout: faSignOutAlt
         },
         activity:
         {
@@ -37,14 +38,14 @@ export class CommonService
             hike: faHiking,
             skiup: faSkiingNordic,
         },
-        track: 
+        track:
         {
             time: faClock,
             date: faCalendar,
             duration: faStopwatch,
             distance: faShoePrints,
             ascent: faMountain,
-            user: faUser  
+            user: faUser
         }
     };
 

@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="card w-50">
+    <div class="card-header">
+        Login
+    </div>
+    <div class="card-body">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">EMail</label>
+                        <input type="text" class="form-control" id="email" placeholder="email" formControlName="email">
+                        <small id="emailInfo" class="form-text text-muted">Insert email</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="password"
+                            formControlName="password">
+                        <small id="passwordInfo" class="form-text text-muted">Insert password</small>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+        </form>
+    </div>
+</div>

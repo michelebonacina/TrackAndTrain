@@ -3,7 +3,7 @@
         Register
     </div>
     <div class="card-body">
-        <form [formGroup]="registerForm">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="row">
                 <div class="col">
                     <div class="form-group">
@@ -44,8 +44,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" (click)="register()"
-                [disabled]="!registerForm.valid">Register</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
         </form>
     </div>
 </div>

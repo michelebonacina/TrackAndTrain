@@ -5,7 +5,7 @@
         </sup>&<sub>traiN&nbsp;<fa-icon [icon]="icons.common.train"></fa-icon></sub>
     </span>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="isUserAuthenticated()">
         <form class="form-inline my-2 my-lg-0 ml-auto">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -47,15 +47,23 @@
                     <fa-icon [icon]="icons.common.user"></fa-icon><span>User</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/authentication/login">
-                        <fa-icon [icon]="icons.common.login"></fa-icon><span>Login</span>
-                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" routerLink="/authentication/register">
-                        <fa-icon [icon]="icons.common.register"></fa-icon><span>Register</span>
+                    <a class="dropdown-item" href="#"
+                        (click)="logout(); $event.stopPropagation(); $event.preventDefault()">
+                        <fa-icon [icon]="icons.common.logout"></fa-icon><span>Logout</span>
                     </a>
                 </div>
             </li>
         </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" *ngIf="!isUserAuthenticated()">
+        <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" routerLink="/authentication/login">
+                <fa-icon [icon]="icons.common.login"></fa-icon><span>Login</span>
+            </a>
+            <a class="nav-item nav-link" routerLink="/authentication/register">
+                <fa-icon [icon]="icons.common.register"></fa-icon><span>Register</span>
+            </a>
+        </div>
     </div>
 </nav>

@@ -10,6 +10,5 @@ export class AuthUser
     id: string;                 // identifier
     username: string;           // username
     email: string;              // user email, used for login
-    password: string;           // password
-    passwordConfirm: string;    // retyped password for confirmation
+    expirationTime: number;     // espiration time in milliseconds
 } // AuthUser

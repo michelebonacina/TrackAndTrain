@@ -48,7 +48,8 @@ exports.login = function (request, response)
                 const token = jwt.sign(
                     {
                         userId: user._id,
-                        username: user.username
+                        username: user.username,
+                        email: user.email
                     },
                     config.SECRET, { expiresIn: '1h' });
                 return response.status(200).json(token);
@@ -114,7 +115,7 @@ exports.register = function (request, response)
                         return response.status(500).send({ errors: MongooseHelper.normalizeError(error.errors) });
                     }
                     // return saved user
-                    return response.status(201).json(createdUser);
+                    return response.status(201).send({ registered: true });
                 }
             );
         }
