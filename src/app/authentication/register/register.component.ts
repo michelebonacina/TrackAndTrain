@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthUser } from '../shared/auth-user.model';
 import { AuthenticationService } from '../shared/authentication.service';
+import { CommonService } from 'src/app/common/shared/common.service';
 
 /**
  * Registration component.
@@ -21,18 +22,25 @@ export class RegisterComponent implements OnInit
 {
 
     registerForm: FormGroup;    // register form data mapper
+    icons: any = {};            // fontawesome icons
 
     /**
      * Creates a new component.
      * @param formBuilder form management
      * @param router router for navigation management
      * @param authenticationService service for user authentication management
+     * @param commonService service for generic operations
      */
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private authenticationService: AuthenticationService
-    ) { } // constructor
+        private authenticationService: AuthenticationService,
+        private commonService: CommonService
+    )
+    {
+        // initialize icons
+        this.icons = this.commonService.icons;
+    } // constructor
 
     /**
      * Component initialization.

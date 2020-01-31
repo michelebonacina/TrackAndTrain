@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs } from '@fortawesome/free-solid-svg-icons';
 
 import { CommonService } from '../shared/common.service';
 import { AuthenticationService } from 'src/app/authentication/shared/authentication.service';

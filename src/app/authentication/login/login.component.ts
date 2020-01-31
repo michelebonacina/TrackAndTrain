@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { AuthenticationService } from '../shared/authentication.service';
-import { AuthUser } from '../shared/auth-user.model';
+import { CommonService } from 'src/app/common/shared/common.service';
 
 /**
  * Login component.
@@ -20,18 +21,25 @@ export class LoginComponent implements OnInit
 {
 
     loginForm: FormGroup;       // register form data mapper
+    icons: any = {};            // fontawesome icons
 
     /**
      * Creates a new component.
      * @param formBuilder form management
      * @param router router for navigation management
      * @param authenticationService service for user authentication management
+     * @param commonService service for generic operations
      */
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private authenticationService: AuthenticationService
-    ) { } // constructor
+        private authenticationService: AuthenticationService,
+        private commonService: CommonService
+    )
+    {
+        // initialize icons
+        this.icons = this.commonService.icons;
+    } // constructor
 
     /**
      * Component initialization.

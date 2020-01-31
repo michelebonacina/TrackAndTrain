@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthenticationComponent } from './authentication.component';
 import { AuthenticationService } from './shared/authentication.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 // authentication routing
@@ -38,7 +39,8 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FontAwesomeModule
     ],
     providers: [
         AuthenticationService
