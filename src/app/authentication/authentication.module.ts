@@ -9,6 +9,8 @@ import { AuthenticationComponent } from './authentication.component';
 import { AuthenticationService } from './shared/authentication.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthenticationGuard } from './shared/authentication.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './shared/token.interceptor';
 
 
 // authentication routing
@@ -45,7 +47,12 @@ const routes: Routes = [
     ],
     providers: [
         AuthenticationService,
-        AuthenticationGuard
+        AuthenticationGuard,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        }
     ]
 })
 export class AuthenticationModule { } // authenticationModule

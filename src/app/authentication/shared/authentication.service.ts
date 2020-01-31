@@ -60,7 +60,7 @@ export class AuthenticationService
     /**
      * Get token from session
      */
-    private getToken(): string
+    public getToken(): string
     {
         // get token from session
         const userToken = sessionStorage.getItem('tat-auth');
@@ -152,7 +152,6 @@ export class AuthenticationService
      */
     public getAuthenticatedUser(): AuthUser
     {
-        console.log("A - " + this.authenticatedUser);
         return this.authenticatedUser;
     } // getAuthenticatedUser
 
