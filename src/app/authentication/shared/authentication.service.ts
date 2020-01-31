@@ -18,6 +18,8 @@ import * as moment from 'moment';
 export class AuthenticationService
 {
 
+    private authenticatedUser: AuthUser;        // authenticated user
+
     /**
      * Create a new service.
      * @param httpClient client for API invocation
@@ -29,21 +31,18 @@ export class AuthenticationService
     /**
      * Decode token and gets user data.
      * @param token token to decode
-     * @returns authenticated user
      */
-    private decodeToken(token: string): AuthUser
+    private decodeToken(token: string)
     {
         // get data from token
         const jwt = new JwtHelperService();
         const decodedToken = jwt.decodeToken(token);
         // create authenticated user
-        const user = new AuthUser();
-        user.id = decodedToken.userId;
-        user.username = decodedToken.username;
-        user.email = decodedToken.email;
-        user.expirationTime = decodedToken.exp;
-        // return user
-        return user;
+        this.authenticatedUser = new AuthUser();
+        this.authenticatedUser.id = decodedToken.userId;
+        this.authenticatedUser.username = decodedToken.username;
+        this.authenticatedUser.email = decodedToken.email;
+        this.authenticatedUser.expirationTime = decodedToken.exp;
     } // decodeToken
 
     /**
@@ -54,8 +53,8 @@ export class AuthenticationService
     {
         // save token to session
         sessionStorage.setItem('tat-auth', token);
-        // save user to session
-        sessionStorage.setItem('tat-user', JSON.stringify(this.decodeToken(token)));
+        // decode token
+        this.decodeToken(token);
     } // saveToken
 
     /**
@@ -103,8 +102,8 @@ export class AuthenticationService
     public isUserAuthenticated(): boolean
     {
         // check user authentication and expiration time
-        return sessionStorage.getItem('tat-auth') != null
-            && sessionStorage.getItem('tat-user') != null
+        return sessionStorage.getItem('tat-auth')
+            && this.authenticatedUser
             && moment().isBefore(moment.unix(this.getAuthenticatedUser().expirationTime))
     } // isUserAuthenticated
 
@@ -142,8 +141,9 @@ export class AuthenticationService
      */
     public logout() 
     {
-        // clear session
+        // clear session and user
         sessionStorage.clear();
+        this.authenticatedUser = undefined;
     } // logout
 
     /**
@@ -152,21 +152,8 @@ export class AuthenticationService
      */
     public getAuthenticatedUser(): AuthUser
     {
-        // get user from session
-        const sessionUserString: string = sessionStorage.getItem('tat-user');
-        let user: AuthUser;
-        if (sessionUserString)
-        {
-            // convert session user to object
-            const sessionUser = JSON.parse(sessionUserString);
-            // initialize user
-            user = new AuthUser();
-            user.id = sessionUser.id;
-            user.username = sessionUser.username;
-            user.email = sessionUser.email;
-            user.expirationTime = sessionUser.expirationTime;
-        }
-        return user;
+        console.log("A - " + this.authenticatedUser);
+        return this.authenticatedUser;
     } // getAuthenticatedUser
 
 } // AuthenticationService
