@@ -11,10 +11,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommonService } from './common/shared/common.service';
 import { ActivityModule } from './activity/activity.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthenticationGuard } from './authentication/shared/authentication.guard';
 
 // application routing
 const routes: Routes = [
-    { path: '', component: DashboardComponent }
+    { path: '', component: DashboardComponent, canActivate: [AuthenticationGuard] }
 ]
 
 /**

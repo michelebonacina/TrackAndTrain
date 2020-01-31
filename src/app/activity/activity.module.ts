@@ -18,7 +18,7 @@ const routes: Routes = [
         path: 'activity',
         component: ActivityComponent,
         children: [
-            { path: '', component: ActivityListComponent, canActivate: [AuthenticationGuard]  },
+            { path: '', component: ActivityListComponent, canActivate: [AuthenticationGuard] },
             { path: 'new', component: ActivityCreateComponent, canActivate: [AuthenticationGuard] }
         ]
     }

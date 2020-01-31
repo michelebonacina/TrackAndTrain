@@ -17,8 +17,8 @@ const routes: Routes = [
         path: 'track',
         component: TrackComponent,
         children: [
-            { path: '', component: TrackListComponent, canActivate: [AuthenticationGuard]  },
-            { path: ':trackId', component: TrackDetailComponent, canActivate: [AuthenticationGuard]  },
+            { path: '', component: TrackListComponent, canActivate: [AuthenticationGuard] },
+            { path: ':trackId', component: TrackDetailComponent, canActivate: [AuthenticationGuard] },
         ]
     }
 ];

@@ -17,8 +17,8 @@ const routes: Routes = [
         path: 'authentication',
         component: AuthenticationComponent,
         children: [
-            { path: 'login', component: LoginComponent, canActivate: [AuthenticationGuard]  },
-            { path: 'register', component: RegisterComponent, canActivate: [AuthenticationGuard]  },
+            { path: 'login', component: LoginComponent, canActivate: [AuthenticationGuard] },
+            { path: 'register', component: RegisterComponent, canActivate: [AuthenticationGuard] },
         ]
     }
 ];
