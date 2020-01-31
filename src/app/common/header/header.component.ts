@@ -53,7 +53,7 @@ export class HeaderComponent implements OnInit
     } // isUserAuthenticated
 
     /**
-     * Logout user from application.
+     * Logout user from application and open login page.
      */
     public logout()
     {
@@ -63,5 +63,14 @@ export class HeaderComponent implements OnInit
         this.router.navigate(["/authentication/login"]);
 
     } // logout
+
+    /**
+     * Get authenticated username.
+     * @returns username
+     */
+    public getUsername()
+    {
+        return this.authenticationService.getAuthenticatedUser().username;
+    } // getUsername
 
 } // HeaderComponent
