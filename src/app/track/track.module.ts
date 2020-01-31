@@ -9,6 +9,7 @@ import { TrackListItemComponent } from './track-list-item/track-list-item.compon
 import { TrackService } from './shared/track.service';
 import { TrackDetailComponent } from './track-detail/track-detail.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthenticationGuard } from '../authentication/shared/authentication.guard';
 
 // track routing
 const routes: Routes = [
@@ -16,8 +17,8 @@ const routes: Routes = [
         path: 'track',
         component: TrackComponent,
         children: [
-            { path: '', component: TrackListComponent },
-            { path: ':trackId', component: TrackDetailComponent },
+            { path: '', component: TrackListComponent, canActivate: [AuthenticationGuard]  },
+            { path: ':trackId', component: TrackDetailComponent, canActivate: [AuthenticationGuard]  },
         ]
     }
 ];

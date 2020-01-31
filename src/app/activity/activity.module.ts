@@ -10,6 +10,7 @@ import { ActivityComponent } from './activity.component';
 import { ActivityListComponent } from './activity-list/activity-list.component';
 import { ActivityListItemComponent } from './activity-list-item/activity-list-item.component';
 import { ActivityCreateComponent } from './activity-create/activity-create.component';
+import { AuthenticationGuard } from '../authentication/shared/authentication.guard';
 
 // activity routing
 const routes: Routes = [
@@ -17,8 +18,8 @@ const routes: Routes = [
         path: 'activity',
         component: ActivityComponent,
         children: [
-            { path: '', component: ActivityListComponent },
-            { path: 'new', component: ActivityCreateComponent }
+            { path: '', component: ActivityListComponent, canActivate: [AuthenticationGuard]  },
+            { path: 'new', component: ActivityCreateComponent, canActivate: [AuthenticationGuard] }
         ]
     }
 ];

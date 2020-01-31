@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthenticationComponent } from './authentication.component';
 import { AuthenticationService } from './shared/authentication.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthenticationGuard } from './shared/authentication.guard';
 
 
 // authentication routing
@@ -16,8 +17,8 @@ const routes: Routes = [
         path: 'authentication',
         component: AuthenticationComponent,
         children: [
-            { path: 'login', component: LoginComponent },
-            { path: 'register', component: RegisterComponent },
+            { path: 'login', component: LoginComponent, canActivate: [AuthenticationGuard]  },
+            { path: 'register', component: RegisterComponent, canActivate: [AuthenticationGuard]  },
         ]
     }
 ];
@@ -43,7 +44,8 @@ const routes: Routes = [
         FontAwesomeModule
     ],
     providers: [
-        AuthenticationService
+        AuthenticationService,
+        AuthenticationGuard
     ]
 })
 export class AuthenticationModule { } // authenticationModule
