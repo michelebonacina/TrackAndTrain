@@ -1,9 +1,9 @@
 {
     "user": [
         {
-            "username": "Test user",
-            "email": "test@nomail.com",
-            "password": "testpassword"
+            "username": "Smeagol",
+            "email": "gollum@nomail.com",
+            "password": "gollum"
         }
     ],
     "activity": [
