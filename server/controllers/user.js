@@ -171,7 +171,6 @@ exports.authenticationMiddleware = function (request, response, next)
         // password is wrong
         return response.status(401).send({ errors: [{ title: 'Not authenticated', details: 'You need to login to get access' }] });
     }
-
 } // authenticationMiddleware
 
 /**

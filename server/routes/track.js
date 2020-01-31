@@ -2,15 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const TrackController = require('../controllers/track');
+const UserController = require('../controllers/user');
 
 /**
  * List all tracks.
  */
-router.get('', TrackController.list);
+router.get('', UserController.authenticationMiddleware, TrackController.list);
 
 /**
  * Load a track by his identifier.
  */
-router.get('/:id', TrackController.loadById);
+router.get('/:id', UserController.authenticationMiddleware, TrackController.loadById);
 
 module.exports = router;
