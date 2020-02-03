@@ -20,6 +20,7 @@ export class TrackService
     /**
      * Create a new track service.
      * @param httpClient client for API invocation
+     * @param activityService service for activity management
      */
     constructor(
         private httpClient: HttpClient,

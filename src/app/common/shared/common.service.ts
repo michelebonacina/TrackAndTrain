@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import
 {
-    faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs
-    , faBicycle, faRunning, faHiking, faUser, faClock, faCalendar, faStopwatch, faMountain, faShoePrints, faSkiingNordic
+    faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs, faIdCard
+    , faBicycle, faRunning, faHiking, faUser, faClock, faCalendar, faStopwatch, faMountain, faShoePrints, faSkiingNordic, faUserCircle, faSignInAlt, faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 /**
@@ -18,26 +18,35 @@ export class CommonService
 {
 
     icons: any = {
-        // logo
-        track: faRoute,
-        train: faGrinBeamSweat,
-        // header menu
-        dashboard: faTachometerAlt,
-        options: faCogs,
-        activity: faPeopleCarry,
-        setup: faCog,
-        user: faUser,
-        // activity
-        bicycle: faBicycle,
-        run: faRunning,
-        hike: faHiking,
-        skiup: faSkiingNordic,
-        // track
-        time: faClock,
-        date: faCalendar,
-        duration: faStopwatch,
-        distance: faShoePrints,
-        ascent: faMountain
+        common:
+        {
+            track: faRoute,
+            train: faGrinBeamSweat,
+            dashboard: faTachometerAlt,
+            options: faCogs,
+            activity: faPeopleCarry,
+            setup: faCog,
+            user: faUserCircle,
+            login: faSignInAlt,
+            register: faIdCard,
+            logout: faSignOutAlt
+        },
+        activity:
+        {
+            bicycle: faBicycle,
+            run: faRunning,
+            hike: faHiking,
+            skiup: faSkiingNordic,
+        },
+        track:
+        {
+            time: faClock,
+            date: faCalendar,
+            duration: faStopwatch,
+            distance: faShoePrints,
+            ascent: faMountain,
+            user: faUser
+        }
     };
 
     /**

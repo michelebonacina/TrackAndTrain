@@ -33,4 +33,12 @@ body {
       text-decoration: none;
     }
   }
+
+  .card .card-header {
+    background-color: $bar-color;
+    color: $bar-text-color;
+}  
+
+
+
 }

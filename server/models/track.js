@@ -13,6 +13,7 @@ const Schema = mongoose.Schema;
  * - distance: track distance in kilometers
  * - ascent: track ascent in meter
  * - createdAt: track creation date/time
+ * - user: user created the track
  */
 const trackSchema = new Schema(
     {
@@ -51,6 +52,10 @@ const trackSchema = new Schema(
             type: Date,
             required: true,
             default: Date.now
+        },
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         }
     },
     {

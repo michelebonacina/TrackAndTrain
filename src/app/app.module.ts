@@ -10,10 +10,12 @@ import { HeaderComponent } from './common/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommonService } from './common/shared/common.service';
 import { ActivityModule } from './activity/activity.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthenticationGuard } from './authentication/shared/authentication.guard';
 
 // application routing
 const routes: Routes = [
-    { path: '', component: DashboardComponent }
+    { path: '', component: DashboardComponent, canActivate: [AuthenticationGuard] }
 ]
 
 /**
@@ -34,7 +36,8 @@ const routes: Routes = [
         RouterModule.forRoot(routes),
         FontAwesomeModule,
         TrackModule,
-        ActivityModule
+        ActivityModule,
+        AuthenticationModule
     ],
     providers: [
         CommonService

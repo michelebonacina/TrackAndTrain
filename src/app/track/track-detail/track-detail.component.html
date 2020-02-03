@@ -1,8 +1,8 @@
 <div class="card" *ngIf="track">
     <div class="card-header">
-        <fa-icon [icon]="icons.user"></fa-icon> User <!-- TODO -->
+        <fa-icon [icon]="trackIcons.user"></fa-icon> User <!-- TODO -->
         -
-        <fa-icon [icon]="icons[track.activity?.iconName]"></fa-icon> {{track.activity?.name}}
+        <fa-icon [icon]="activityIcons[track.activity?.iconName]"></fa-icon> {{track.activity?.name}}
     </div>
     <div class="card-body">
 
@@ -12,8 +12,8 @@
                     <div class="card border-0">
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted">
-                                <fa-icon [icon]="icons.date"></fa-icon> {{track.startedAt | date : 'dd/MM/yyyy'}}
-                                <fa-icon [icon]="icons.time"></fa-icon> {{track.startedAt | date : 'H:mm'}}
+                                <fa-icon [icon]="trackIcons.date"></fa-icon> {{track.startedAt | date : 'dd/MM/yyyy'}}
+                                <fa-icon [icon]="trackIcons.time"></fa-icon> {{track.startedAt | date : 'H:mm'}}
                             </h6>
                             <h5 class="card-title">{{track.title}}</h5>
                             <p class="card-text">{{track.description}}</p>
@@ -25,14 +25,14 @@
                     <div class="card">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <fa-icon [icon]="icons.duration"></fa-icon> Duration:
+                                <fa-icon [icon]="trackIcons.duration"></fa-icon> Duration:
                                 {{track.duration | date : 'H' : '+0000'}}h{{track.duration | date : 'mm' : '+0000'}}m{{track.duration | date : 'ss' : '+0000'}}s
                             </li>
                             <li class="list-group-item">
-                                <fa-icon [icon]="icons.distance"></fa-icon> Distance: {{track.distance}} km
+                                <fa-icon [icon]="trackIcons.distance"></fa-icon> Distance: {{track.distance}} km
                             </li>
                             <li class="list-group-item">
-                                <fa-icon [icon]="icons.ascent"></fa-icon> Ascent: {{track.ascent}} m
+                                <fa-icon [icon]="trackIcons.ascent"></fa-icon> Ascent: {{track.ascent}} m
                             </li>
                         </ul>
                     </div>

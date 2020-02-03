@@ -7,6 +7,8 @@ const Schema = mongoose.Schema;
  * Fields:
  * - code: activity unique code
  * - name: activity name
+ * - iconName: name of the icon associated to the activity
+ * - color: color of activity
  */
 const activitySchema = new Schema(
     {
@@ -15,7 +17,8 @@ const activitySchema = new Schema(
             minlength: [3, 'Activity code min length is 3 chars'],
             maxlength: [20, 'Activity code min length is 20 chars'],
             uppercase: true,
-            required: true
+            required: true,
+            unique: true
         },
         name: {
             type: String,

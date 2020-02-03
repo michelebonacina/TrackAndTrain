@@ -1,4 +1,11 @@
 {
+    "user": [
+        {
+            "username": "Smeagol",
+            "email": "gollum@mordor.com",
+            "password": "precious"
+        }
+    ],
     "activity": [
         {
             "code": "MTB",

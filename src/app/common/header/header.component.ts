@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs } from '@fortawesome/free-solid-svg-icons';
 
 import { CommonService } from '../shared/common.service';
+import { AuthenticationService } from 'src/app/authentication/shared/authentication.service';
+import { Router } from '@angular/router';
 
 /**
  * Header component.
- * Top bar with search and menu management.
+ * Top bar with search form and menu management.
  * @author michele bonacina
  * @since 0.0.1.
  * @version 0.0.1.
@@ -23,9 +24,13 @@ export class HeaderComponent implements OnInit
     /**
      * Create a new component.
      * @param commonService service for generic operations
+     * @param authenticationService service for user authentication management
+     * @param router router for navigation management
      */
     constructor(
-        private commonService: CommonService
+        private commonService: CommonService,
+        private authenticationService: AuthenticationService,
+        private router: Router
     )
     {
         // initialize icons
@@ -36,5 +41,35 @@ export class HeaderComponent implements OnInit
      * Component initialization.
      */
     ngOnInit() { } // ngOnInit
+
+    /**
+     * Check if there's a user authenticated.
+     * @returns true if the user is authenticated, false otherwise
+     */
+    public isUserAuthenticated(): boolean
+    {
+        return this.authenticationService.isUserAuthenticated();
+    } // isUserAuthenticated
+
+    /**
+     * Logout user from application and open login page.
+     */
+    public logout()
+    {
+        // logout user
+        this.authenticationService.logout();
+        // go to login page
+        this.router.navigate(["/authentication/login"]);
+
+    } // logout
+
+    /**
+     * Get authenticated username.
+     * @returns username
+     */
+    public getUsername()
+    {
+        return this.authenticationService.getAuthenticatedUser().username;
+    } // getUsername
 
 } // HeaderComponent

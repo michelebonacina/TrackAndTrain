@@ -1,0 +1,50 @@
+<div class="card w-50">
+    <div class="card-header">
+        <fa-icon [icon]="icons.common.register"></fa-icon> Register
+    </div>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="username"
+                            formControlName="username">
+                        <small id="usernameInfo" class="form-text text-muted">Insert username</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">EMail</label>
+                        <input type="text" class="form-control" id="email" placeholder="email" formControlName="email">
+                        <small id="emailInfo" class="form-text text-muted">Insert email. It has to be an active
+                            email</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="password"
+                            formControlName="password">
+                        <small id="passwordInfo" class="form-text text-muted">Insert password</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="passwordConfirm">Password confirm</label>
+                        <input type="password" class="form-control" id="passwordConfirm" placeholder="password confirm"
+                            formControlName="passwordConfirm">
+                        <small id="passwordConfirmInfo" class="form-text text-muted">Retype password</small>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+        </form>
+    </div>
+</div>

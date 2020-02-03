@@ -23,11 +23,14 @@ export class ActivityCreateComponent implements OnInit
 
     /**
      * Create a new component.
+     * @param formBuilder form management
+     * @param router router for navigation management
+     * @param activityService service for activity management
      */
     constructor(
-        private formBuilder: FormBuilder,           // form management
-        private router: Router,                     // router for navigation management
-        private activityService: ActivityService    // service for activity management
+        private formBuilder: FormBuilder,
+        private router: Router,
+        private activityService: ActivityService
     ) { } // constructor
 
     /**

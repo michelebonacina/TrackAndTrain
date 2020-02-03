@@ -1,5 +1,6 @@
 const fakeDbData = require('./fake-db-data.json');
 
+const User = require('./models/user');
 const Activity = require('./models/activity');
 const Track = require('./models/track');
 
@@ -15,6 +16,7 @@ class FakeDb
     constructor()
     {
         // load fake data
+        this.user = fakeDbData.user;
         this.activities = fakeDbData.activity;
         this.tracks = fakeDbData.track;
     } // constructor
@@ -24,8 +26,9 @@ class FakeDb
      */
     async deleteData()
     {
-        await Track.deleteMany({});
+        await User.deleteMany({});
         await Activity.deleteMany({});
+        await Track.deleteMany({});
     } // deleteData
 
     /**
@@ -33,6 +36,17 @@ class FakeDb
      */
     loadData()
     {
+        // load users
+        const userList = [];
+        this.user.forEach(
+            (user) =>
+            {
+                // create a new user
+                const newUser = new User(user);
+                // store in user list
+                userList.push(newUser);
+            }
+        );
         // load activities
         const activityList = [];
         this.activities.forEach(
@@ -43,9 +57,10 @@ class FakeDb
                 // save activity
                 newActivity.save();
                 // store activity list
-                activityList.push(newActivity);
+                activityList.push(newActivity);                
             }
         );
+        // load track
         this.tracks.forEach(
             (track) =>
             {
@@ -53,10 +68,21 @@ class FakeDb
                 const newTrack = new Track(track);
                 // set activity
                 newTrack.activity = activityList[track._activityNum];
+                // set user
+                newTrack.user = userList[0];
+                userList[0].tracks.push(newTrack);
                 // save track
                 newTrack.save();
             }
-        )
+        );
+        // save user
+        userList.forEach(
+            (newUser) =>
+            {
+                // save user
+                newUser.save();
+            }
+        );
     } // loadData
 
     /**
