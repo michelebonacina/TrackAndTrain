@@ -64,6 +64,9 @@ export class LoginComponent implements OnInit
      */
     login()
     {
+        // clear errors
+        this.messageService.clearErrors();
+        // check login data
         if (this.loginForm.valid)
         {
             // the form data are correct
@@ -77,6 +80,7 @@ export class LoginComponent implements OnInit
                 },
                 (error) =>
                 {
+                    // show login errors
                     this.messageService.notifyErrors(error);
                 }
             );
@@ -88,7 +92,9 @@ export class LoginComponent implements OnInit
      */
     reset()
     {
+        // reset form
         this.loginForm.reset();
+        // clear errors
         this.messageService.clearErrors();
     } // reset
 
