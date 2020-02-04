@@ -5,6 +5,7 @@ import { faRoute, faClock, faCalendar, faStopwatch, faShoePrints, faMountain } f
 import { TrackService } from '../shared/track.service';
 import { Track } from '../shared/track.model';
 import { CommonService } from 'src/app/common/shared/common.service';
+import { BreadcrumbLevel } from 'src/app/common/shared/breadcrumb-level';
 
 /**
  * Track detail component.
@@ -49,6 +50,9 @@ export class TrackDetailComponent implements OnInit
         this.route.params.subscribe(
             (params) =>
             {
+                // show breadcrumb level
+                this.commonService.addBreadcrumbLevel(new BreadcrumbLevel("Detail", "/track/" + params['trackId']));
+                // load track
                 this.getTrack(params['trackId']);
             }
         );

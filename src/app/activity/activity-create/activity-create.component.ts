@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Activity } from '../shared/activity.model';
 import { ActivityService } from '../shared/activity.service';
 import { Router } from '@angular/router';
+import { CommonService } from 'src/app/common/shared/common.service';
+import { BreadcrumbLevel } from 'src/app/common/shared/breadcrumb-level';
 
 /**
  * Activity create compoment.
@@ -26,11 +28,13 @@ export class ActivityCreateComponent implements OnInit
      * @param formBuilder form management
      * @param router router for navigation management
      * @param activityService service for activity management
+     * @param commonService service for generic operations
      */
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private activityService: ActivityService
+        private activityService: ActivityService,
+        private commonService: CommonService
     ) { } // constructor
 
     /**
@@ -38,6 +42,8 @@ export class ActivityCreateComponent implements OnInit
      */
     ngOnInit()
     {
+        // show breadcrumb level
+        this.commonService.addBreadcrumbLevel(new BreadcrumbLevel("New", "/activity/new"));
         // create activity form
         this.activityForm = this.formBuilder.group(
             {

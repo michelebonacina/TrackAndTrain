@@ -1,5 +1,17 @@
 <tat-header></tat-header>
 
+<ng-container *ngIf="isBreadcrumbVisible()">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" *ngFor="let breadcrumbLevel of breadcrumbLevels; let i = index; let last = last">
+                <a *ngIf="!last" routerLink="{{breadcrumbLevel.link}}">{{breadcrumbLevel.name}}</a>
+                <span *ngIf="last">{{breadcrumbLevel.name}}</span>
+            </li>
+            
+        </ol>
+    </nav>
+</ng-container>
+
 <div class="container">
     <router-outlet></router-outlet>
 </div>
