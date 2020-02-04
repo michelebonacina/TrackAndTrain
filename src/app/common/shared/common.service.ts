@@ -4,11 +4,16 @@ import
     faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs, faIdCard
     , faBicycle, faRunning, faHiking, faUser, faClock, faCalendar, faStopwatch, faMountain, faShoePrints, faSkiingNordic, faUserCircle, faSignInAlt, faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
-import { BreadcrumbLevel } from './breadcrumb-level';
 import { Observable, Observer } from 'rxjs';
+
+import { BreadcrumbLevel } from './breadcrumb-level';
 
 /**
  * Service for general purpuse operations.
+ * This service is used for:
+ * - icons management
+ * - breadcrumb management
+ * - messages and error messages management
  * @author michele bonacina
  * @since 0.0.1.
  * @version 0.0.1.
@@ -19,8 +24,8 @@ import { Observable, Observer } from 'rxjs';
 export class CommonService
 {
 
-    private breadcrumbLevels: BreadcrumbLevel[] = [];     // breadcrumb levels for navigation
-    private breadcrumbsLevelsObserver: Observer<BreadcrumbLevel[]>;
+    private breadcrumbLevels: BreadcrumbLevel[] = [];                   // breadcrumb levels for navigation
+    private breadcrumbsLevelsObserver: Observer<BreadcrumbLevel[]>;     // breadcrumb levels observer
 
     // fontawesome icons used by the application
     icons: any = {

@@ -3,13 +3,32 @@
 <ng-container *ngIf="isBreadcrumbVisible()">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item" *ngFor="let breadcrumbLevel of breadcrumbLevels; let i = index; let last = last">
+            <li class="breadcrumb-item"
+                *ngFor="let breadcrumbLevel of breadcrumbLevels; let i = index; let last = last">
                 <a *ngIf="!last" routerLink="{{breadcrumbLevel.link}}">{{breadcrumbLevel.name}}</a>
                 <span *ngIf="last">{{breadcrumbLevel.name}}</span>
             </li>
-            
+
         </ol>
     </nav>
+</ng-container>
+
+<ng-container *ngIf="isErrorVisible()">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngFor="let error of errors">
+        <strong>{{error.title}}</strong> - {{error.details}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="removeErrors()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isMessageVisible()">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 </ng-container>
 
 <div class="container">
