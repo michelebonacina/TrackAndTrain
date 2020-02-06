@@ -23,11 +23,8 @@
 </ng-container>
 
 <ng-container *ngIf="isMessageVisible()">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngFor="let message of messages">
+        <strong>{{message.title}}</strong> - {{message.details}}
     </div>
 </ng-container>
 

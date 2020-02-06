@@ -10,6 +10,7 @@ export class MessageService
 {
 
     private errorsObserver: Observer<Note[]>;   // error messages observer
+    private messagesObserver: Observer<Note[]>;   // messages observer
 
     /**
      * Create a new service
@@ -36,7 +37,10 @@ export class MessageService
      */
     public notifyErrors(errors: Note[])
     {
-        this.errorsObserver.next(errors);
+        if (this.errorsObserver)
+        {
+            this.errorsObserver.next(errors);
+        }
     } // showErrors
 
     /**
@@ -73,5 +77,39 @@ export class MessageService
         // return errors
         return errors;
     } // getErrorsFromAPI
+
+    /**
+     * Returns messages.
+     * @returns observalble messages
+     */
+    public getMessages(): Observable<Note[]>
+    {
+        return new Observable<Note[]>(
+            (observer) =>
+            {
+                this.messagesObserver = observer;
+            }
+        );
+    } // getMessages
+
+    /**
+     * Notify a list of messages.
+     * @param messages message list
+     */
+    public notifyMessages(messages: Note[])
+    {
+        if (this.messagesObserver)
+        {
+            this.messagesObserver.next(messages);
+        }
+    } // notifyMessages
+
+    /**
+     * Clear all messages.
+     */
+    public clearMessages()
+    {
+        this.notifyMessages([]);
+    } // clearMessages
 
 } // MessageService

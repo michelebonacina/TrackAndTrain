@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../shared/authentication.service';
 import { CommonService } from 'src/app/common/shared/common.service';
 import { MessageService } from 'src/app/common/shared/message.service';
+import { Note } from 'src/app/common/shared/note';
 
 /**
  * Login component.
@@ -96,6 +97,7 @@ export class LoginComponent implements OnInit
         this.loginForm.reset();
         // clear errors
         this.messageService.clearErrors();
+        this.messageService.notifyMessages([new Note("OK", "tutto ok")]);
     } // reset
 
 } // LoginCompenent

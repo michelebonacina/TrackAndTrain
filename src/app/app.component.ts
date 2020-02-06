@@ -69,6 +69,25 @@ export class AppComponent implements OnInit
                 // TODO
             }
         );
+        // subscribe to messaged
+        this.messageService.getMessages().subscribe(
+            (messages) => 
+            {
+                this.messages = messages;
+                this.changeDetectorRef.detectChanges();
+                setTimeout(
+                    () =>
+                    {
+                        this.removeMessages();
+                    }
+                    , 3000
+                );
+            },
+            (error) =>
+            {
+                // TODO
+            }
+        );
     } // ngOnInit
 
     /**
@@ -124,6 +143,14 @@ export class AppComponent implements OnInit
     removeErrors()
     {
         this.messageService.clearErrors();
+    } // removeErrors
+
+    /**
+     * Remove all messages.
+     */
+    removeMessages()
+    {
+        this.messageService.clearMessages();
     } // removeErrors
 
 } // AppComponent
