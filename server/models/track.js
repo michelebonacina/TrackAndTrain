@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const trackPointSchema = require('./_track-point');
 
 /**
  * Track.
@@ -48,6 +49,7 @@ const trackSchema = new Schema(
             type: Number,
             required: true
         },
+        trackPoints: [trackPointSchema],
         createdAt: {
             type: Date,
             required: true,

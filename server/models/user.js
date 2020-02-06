@@ -38,6 +38,12 @@ const userSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'Track'
             }
+        ],
+        waypoints: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Waypoint'
+            }
         ]
     },
     {

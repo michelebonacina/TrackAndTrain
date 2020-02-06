@@ -2,6 +2,8 @@ const fakeDbData = require('./fake-db-data.json');
 
 const User = require('./models/user');
 const Activity = require('./models/activity');
+const WaypointType = require('./models/waypoint-type');
+const Waypoint = require('./models/waypoint');
 const Track = require('./models/track');
 
 /**
@@ -18,6 +20,8 @@ class FakeDb
         // load fake data
         this.user = fakeDbData.user;
         this.activities = fakeDbData.activity;
+        this.waypointTypes = fakeDbData.waypointType;
+        this.waypoints = fakeDbData.waypoint;
         this.tracks = fakeDbData.track;
     } // constructor
 
@@ -28,6 +32,8 @@ class FakeDb
     {
         await User.deleteMany({});
         await Activity.deleteMany({});
+        await WaypointType.deleteMany({});
+        await Waypoint.deleteMany({});
         await Track.deleteMany({});
     } // deleteData
 
@@ -48,7 +54,7 @@ class FakeDb
             }
         );
         // load activities
-        const activityList = [];
+        const activityList = new Map();
         this.activities.forEach(
             (activity) =>
             {
@@ -57,9 +63,36 @@ class FakeDb
                 // save activity
                 newActivity.save();
                 // store activity list
-                activityList.push(newActivity);                
+                activityList.set(newActivity.code, newActivity);
             }
         );
+        const waypointTypeList = new Map();
+        this.waypointTypes.forEach(
+            (waypointType) =>
+            {
+                // create a new waypoint type
+                const newWaypointType = new WaypointType(waypointType);
+                // save activity
+                newWaypointType.save();
+                // store waypoint type list
+                waypointTypeList.set(newWaypointType.code, newWaypointType);
+            }
+        )
+        // load waypoint
+        this.waypoints.forEach(
+            (waypoint) =>
+            {
+                // create new waypoint
+                const newWaypoint = new Waypoint(waypoint);
+                // set waypoint type
+                newWaypoint.type = waypointTypeList.get(waypoint._waypointTypeCode);
+                // set user
+                newWaypoint.user = userList[0];
+                userList[0].waypoints.push(newWaypoint);
+                // save waypoint
+                newWaypoint.save();
+            }
+        )
         // load track
         this.tracks.forEach(
             (track) =>
@@ -67,7 +100,7 @@ class FakeDb
                 // create new track
                 const newTrack = new Track(track);
                 // set activity
-                newTrack.activity = activityList[track._activityNum];
+                newTrack.activity = activityList.get(track._activityCode);
                 // set user
                 newTrack.user = userList[0];
                 userList[0].tracks.push(newTrack);
