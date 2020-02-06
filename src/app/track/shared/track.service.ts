@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Track } from './track.model';
 import { ActivityService } from 'src/app/activity/shared/activity.service';
+import { MessageService } from 'src/app/common/shared/message.service';
 
 /**
  * Track Service.
@@ -21,10 +22,12 @@ export class TrackService
      * Create a new track service.
      * @param httpClient client for API invocation
      * @param activityService service for activity management
+     * @param messageService service for messages and errors management
      */
     constructor(
         private httpClient: HttpClient,
-        private activityService: ActivityService
+        private activityService: ActivityService,
+        private messageService: MessageService
     ) { } // constructor
 
     /**
@@ -70,7 +73,7 @@ export class TrackService
             apiTrack._id = track.id;
             apiTrack.title = track.title;
             apiTrack.description = track.description;
-            apiTrack.activity = "n.d."; // TODO
+            apiTrack.activity = "n.d."; // TODO: link to activity
         }
         // return api track
         return apiTrack;
@@ -101,6 +104,12 @@ export class TrackService
                         // return tracks
                         observer.next(tracks);
                         observer.complete();
+                    },
+                    (error) => 
+                    {
+                        // error loading tracks
+                        observer.error(this.messageService.getErrorsFromAPI(error));
+
                     }
                 );
 
@@ -124,6 +133,11 @@ export class TrackService
                     {
                         observer.next(this.getTrackFromAPI(findedTrack));
                         observer.complete();
+                    },
+                    (error) =>
+                    {
+                        // error loading track
+                        observer.error(this.messageService.getErrorsFromAPI(error));
                     }
                 );
             }

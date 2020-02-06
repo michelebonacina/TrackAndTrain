@@ -5,6 +5,8 @@ import { faRoute, faClock, faCalendar, faStopwatch, faShoePrints, faMountain } f
 import { TrackService } from '../shared/track.service';
 import { Track } from '../shared/track.model';
 import { CommonService } from 'src/app/common/shared/common.service';
+import { BreadcrumbLevel } from 'src/app/common/shared/breadcrumb-level';
+import { MessageService } from 'src/app/common/shared/message.service';
 
 /**
  * Track detail component.
@@ -30,11 +32,13 @@ export class TrackDetailComponent implements OnInit
      * @param route route service for navigation management
      * @param trackService track service
      * @param commonService service for generic operations
+     * @param messageService service for messages and errors management
      */
     constructor(
         private route: ActivatedRoute,
         private trackService: TrackService,
-        private commonService: CommonService
+        private commonService: CommonService,
+        private messageService: MessageService
     ) { } // constructors
 
     /**
@@ -49,6 +53,9 @@ export class TrackDetailComponent implements OnInit
         this.route.params.subscribe(
             (params) =>
             {
+                // show breadcrumb level
+                this.commonService.addBreadcrumbLevel(new BreadcrumbLevel("Detail", "/track/" + params['trackId']));
+                // load track
                 this.getTrack(params['trackId']);
             }
         );
@@ -70,7 +77,8 @@ export class TrackDetailComponent implements OnInit
             },
             (error) =>
             {
-                // TODO
+                // error loading track
+                this.messageService.notifyErrors(error);
             },
             () => { }
         )

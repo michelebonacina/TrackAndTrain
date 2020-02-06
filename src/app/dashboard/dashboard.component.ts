@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CommonService } from '../common/shared/common.service';
+import { BreadcrumbLevel } from '../common/shared/breadcrumb-level';
+
 /**
  * Dashboard component.
  * Dashboard data visualization.
@@ -17,12 +20,19 @@ export class DashboardComponent implements OnInit
 
     /**
      * Create a new component.
+     * @param commonService service for generic operations
      */
-    constructor() { } // constructor
+    constructor(
+        private commonService: CommonService
+    ) { } // constructor
 
     /**
      * Component initialization.
      */
-    ngOnInit() { } // ngOnInit
+    ngOnInit()
+    {
+        // show breadcrumb level
+        this.commonService.resetBreadcrumbLevels(new BreadcrumbLevel("Dashboard", "/"));
+    } // ngOnInit
 
 } // DashboardComponent

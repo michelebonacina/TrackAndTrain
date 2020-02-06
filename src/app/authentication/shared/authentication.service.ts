@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { AuthUser } from './auth-user.model';
 import * as moment from 'moment';
+
+import { AuthUser } from './auth-user.model';
+import { MessageService } from 'src/app/common/shared/message.service';
 
 /**
  * Authentication Service.
@@ -23,9 +25,11 @@ export class AuthenticationService
     /**
      * Create a new service.
      * @param httpClient client for API invocation
+     * @param messageService service for messaging management
      */
     constructor(
-        private httpClient: HttpClient
+        private httpClient: HttpClient,
+        private messageService: MessageService
     ) { } // constructor
 
     /**
@@ -88,7 +92,8 @@ export class AuthenticationService
                     },
                     (error) =>
                     {
-                        // TODO
+                        // user not registere
+                        observer.error(this.messageService.getErrorsFromAPI(error));
                     }
                 );
             }
@@ -109,7 +114,7 @@ export class AuthenticationService
 
     /**
      * Login a user.
-     * @param loginUser user to login
+     * @param loginUser user to login // TODO change parameters to username,password
      */
     public login(loginUser: any) 
     {
@@ -129,7 +134,8 @@ export class AuthenticationService
                     },
                     (error) =>
                     {
-                        // TODO
+                        // authentication error
+                        observer.error(this.messageService.getErrorsFromAPI(error));
                     }
                 );
             }

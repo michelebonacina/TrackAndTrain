@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../shared/authentication.service';
 import { CommonService } from 'src/app/common/shared/common.service';
+import { MessageService } from 'src/app/common/shared/message.service';
+import { Note } from 'src/app/common/shared/note';
 
 /**
  * Login component.
@@ -29,12 +31,14 @@ export class LoginComponent implements OnInit
      * @param router router for navigation management
      * @param authenticationService service for user authentication management
      * @param commonService service for generic operations
+     * @param messageService service for messaging management
      */
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private commonService: CommonService
+        private commonService: CommonService,
+        private messageService: MessageService
     )
     {
         // initialize icons
@@ -61,6 +65,9 @@ export class LoginComponent implements OnInit
      */
     login()
     {
+        // clear errors
+        this.messageService.clearErrors();
+        // check login data
         if (this.loginForm.valid)
         {
             // the form data are correct
@@ -74,10 +81,23 @@ export class LoginComponent implements OnInit
                 },
                 (error) =>
                 {
-                    // TODO
+                    // show login errors
+                    this.messageService.notifyErrors(error);
                 }
             );
         }
     } // login
+
+    /**
+     * Reset login form.
+     */
+    reset()
+    {
+        // reset form
+        this.loginForm.reset();
+        // clear errors
+        this.messageService.clearErrors();
+        this.messageService.notifyMessages([new Note("OK", "tutto ok")]);
+    } // reset
 
 } // LoginCompenent

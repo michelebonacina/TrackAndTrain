@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthUser } from '../shared/auth-user.model';
 import { AuthenticationService } from '../shared/authentication.service';
 import { CommonService } from 'src/app/common/shared/common.service';
+import { MessageService } from 'src/app/common/shared/message.service';
+import { Note } from 'src/app/common/shared/note';
 
 /**
  * Registration component.
@@ -29,13 +30,15 @@ export class RegisterComponent implements OnInit
      * @param formBuilder form management
      * @param router router for navigation management
      * @param authenticationService service for user authentication management
-     * @param commonService service for generic operations
+     * @param commonService service for generic operations,
+     * @param messageService service for messages and errors management
      */
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private commonService: CommonService
+        private commonService: CommonService,
+        private messageService: MessageService
     )
     {
         // initialize icons
@@ -63,6 +66,7 @@ export class RegisterComponent implements OnInit
      */
     register()
     {
+        // check form
         if (this.registerForm.valid)
         {
             // the form data are correct
@@ -71,12 +75,14 @@ export class RegisterComponent implements OnInit
                 () =>
                 {
                     // user registered
+                    this.messageService.notifyMessages([new Note("Registration", "User added. Now you can login.")]);
                     // go to confirm page
                     this.router.navigate(['/authentication/login']);
                 },
                 (error) =>
                 {
-                    // TODO
+                    // user not registered
+                    this.messageService.notifyErrors(error);
                 }
             );
         }

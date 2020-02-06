@@ -3,6 +3,9 @@ import { Observable } from 'rxjs';
 
 import { Activity } from '../shared/activity.model';
 import { ActivityService } from '../shared/activity.service';
+import { CommonService } from 'src/app/common/shared/common.service';
+import { BreadcrumbLevel } from 'src/app/common/shared/breadcrumb-level';
+import { MessageService } from 'src/app/common/shared/message.service';
 
 /**
  * Activity list component.
@@ -24,9 +27,13 @@ export class ActivityListComponent implements OnInit
     /**
      * Create a new component.
      * @param activityService service for activity management
+     * @param commonService service for generic operations
+     * @param messageService service for messages and errors management
      */
     constructor(
-        private activityService: ActivityService
+        private activityService: ActivityService,
+        private commonService: CommonService,
+        private messageService: MessageService
     ) { } // constructor
 
     /**
@@ -34,6 +41,8 @@ export class ActivityListComponent implements OnInit
      */
     ngOnInit()
     {
+        // show breadcrumb level
+        this.commonService.resetBreadcrumbLevels(new BreadcrumbLevel("Activity", "/activity"));
         // load activities to be listed
         const activityObservable: Observable<Activity[]> = this.activityService.getActivities();
         activityObservable.subscribe(
@@ -44,7 +53,8 @@ export class ActivityListComponent implements OnInit
             },
             (error) =>
             {
-                // TODO
+                // error loading activities
+                this.messageService.notifyErrors(this.messageService.getErrorsFromAPI(error));
             },
             () => { }
         );

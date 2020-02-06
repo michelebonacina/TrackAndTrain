@@ -12,6 +12,7 @@ import { CommonService } from './common/shared/common.service';
 import { ActivityModule } from './activity/activity.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AuthenticationGuard } from './authentication/shared/authentication.guard';
+import { MessageService } from './common/shared/message.service';
 
 // application routing
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
         AuthenticationModule
     ],
     providers: [
-        CommonService
+        CommonService,
+        MessageService
     ],
     bootstrap: [
         AppComponent

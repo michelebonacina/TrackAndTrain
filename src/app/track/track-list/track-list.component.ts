@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 
 import { TrackService } from '../shared/track.service';
 import { Track } from '../shared/track.model';
+import { CommonService } from 'src/app/common/shared/common.service';
+import { BreadcrumbLevel } from 'src/app/common/shared/breadcrumb-level';
+import { MessageService } from 'src/app/common/shared/message.service';
 
 /**
  * Track list component.
@@ -24,9 +26,13 @@ export class TrackListComponent implements OnInit
     /**
      * Create a new component.
      * @param trackService service for track management
+     * @param commonService service for generic operations
+     * @param messageService service for messages and error management
      */
     constructor(
-        private trackService: TrackService
+        private trackService: TrackService,
+        private commonService: CommonService,
+        private messageService: MessageService
     ) { } // contructor
 
     /**
@@ -34,9 +40,10 @@ export class TrackListComponent implements OnInit
      */
     ngOnInit()
     {
+        // show breadcrumb level
+        this.commonService.resetBreadcrumbLevels(new BreadcrumbLevel("Track", "/track"));
         // load tracks to be listed 
-        const trackObservable: Observable<Track[]> = this.trackService.getTracks();
-        trackObservable.subscribe(
+        this.trackService.getTracks().subscribe(
             (tracks) =>
             {
                 // tracks loaded
@@ -44,7 +51,8 @@ export class TrackListComponent implements OnInit
             },
             (error) =>
             {
-                // TODO
+                // error loading tracks
+                this.messageService.notifyErrors(error);
             },
             () => { }
         );
