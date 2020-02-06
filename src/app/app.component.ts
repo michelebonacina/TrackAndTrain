@@ -54,7 +54,7 @@ export class AppComponent implements OnInit
             },
             (error) =>
             {
-                // TODO
+                // TODO: add generic error page
             }
         );
         // subscribe to errors
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit
             },
             (error) =>
             {
-                // TODO
+                // TODO: add generic error page
             }
         );
         // subscribe to messaged
@@ -85,7 +85,7 @@ export class AppComponent implements OnInit
             },
             (error) =>
             {
-                // TODO
+                // TODO: add generic error page
             }
         );
     } // ngOnInit

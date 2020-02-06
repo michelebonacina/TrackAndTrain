@@ -92,7 +92,8 @@ export class AuthenticationService
                     },
                     (error) =>
                     {
-                        // TODO
+                        // user not registere
+                        observer.error(this.messageService.getErrorsFromAPI(error));
                     }
                 );
             }

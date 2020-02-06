@@ -112,4 +112,13 @@ export class MessageService
         this.notifyMessages([]);
     } // clearMessages
 
+    /**
+     * Clear all messages and errors.
+     */
+    public clearAll()
+    {
+        this.clearMessages();
+        this.clearErrors();
+    } // clearAll
+
 } // MessageService
