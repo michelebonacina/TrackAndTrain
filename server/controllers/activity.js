@@ -21,7 +21,7 @@ exports.list = function (request, response)
             if (error)
             {
                 // error during activities load
-                return response.status(500).send({ errors: [{ title: 'Activity error!', details: 'Error loading Actviities' }] });
+                return response.status(500).send({ errors: [{ title: 'Activity error!', details: 'Error loading Activities' }] });
             }
             // return actvities
             return response.status(200).json(activities);

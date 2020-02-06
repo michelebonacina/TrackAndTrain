@@ -7,6 +7,7 @@ const FakeDb = require('./fake-db');
 
 const trackRoutes = require('./routes/track');
 const activityRoutes = require('./routes/activity');
+const waypointTypeRoutes = require('./routes/waypoint-type');
 const userRoutes = require('./routes/user');
 
 // initialize database.
@@ -40,6 +41,7 @@ app.use(bodyParser.json());
 // initialize routes
 app.use('/api/v1/track', trackRoutes);
 app.use('/api/v1/activity', activityRoutes);
+app.use('/api/v1/waypoint-type', waypointTypeRoutes);
 app.use('/api/v1/user', userRoutes);
 
 // start server
