@@ -25,7 +25,7 @@ body {
     &:visited {
       color: $button-link-color !important;
     }
-    
+
     &:hover,
     &:focus,
     &:active {
@@ -37,8 +37,10 @@ body {
   .card .card-header {
     background-color: $bar-color;
     color: $bar-text-color;
-}  
+  }
 
-
+  .custom-centered {
+    margin: 0 auto;
+  }
 
 }
