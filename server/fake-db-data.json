@@ -30,19 +30,19 @@
         {
             "code": "VET",
             "name": "Vetta",
-            "iconName": "",
+            "iconName": "mountain",
             "color": "#000000"
         },
         {
             "code": "RIF",
             "name": "Rifugio",
-            "iconName": "",
+            "iconName": "house",
             "color": "#000000"
         },
         {
             "code": "BIV",
             "name": "Bivacco",
-            "iconName": "",
+            "iconName": "igloo",
             "color": "#000000"
         }
     ],

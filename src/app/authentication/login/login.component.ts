@@ -97,7 +97,6 @@ export class LoginComponent implements OnInit
         this.loginForm.reset();
         // clear errors
         this.messageService.clearErrors();
-        this.messageService.notifyMessages([new Note("OK", "tutto ok")]);
     } // reset
 
 } // LoginCompenent

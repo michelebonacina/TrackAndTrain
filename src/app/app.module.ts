@@ -4,7 +4,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 
 import { TrackModule } from './track/track.module';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -13,6 +12,7 @@ import { ActivityModule } from './activity/activity.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AuthenticationGuard } from './authentication/shared/authentication.guard';
 import { MessageService } from './common/shared/message.service';
+import { WaypointTypeModule } from './waypoint-type/waypoint-type.module';
 
 // application routing
 const routes: Routes = [
@@ -36,9 +36,10 @@ const routes: Routes = [
         BrowserModule,
         RouterModule.forRoot(routes),
         FontAwesomeModule,
+        AuthenticationModule,
         TrackModule,
         ActivityModule,
-        AuthenticationModule
+        WaypointTypeModule
     ],
     providers: [
         CommonService,

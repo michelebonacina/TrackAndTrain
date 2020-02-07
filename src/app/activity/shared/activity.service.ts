@@ -69,7 +69,7 @@ export class ActivityService
         }
         // return api activity
         return apiActivity;
-    } // setActivityToAPI    
+    } // getAPIFromActivity    
 
     /**
      * Load all activities from persistence.
@@ -98,7 +98,6 @@ export class ActivityService
                         observer.complete();
                     }
                 );
-
             }
         );
     } // getActivities
@@ -124,7 +123,6 @@ export class ActivityService
             }
         );
     } // getActivityById
-
 
     /**
      * Create a new activity into persistence.

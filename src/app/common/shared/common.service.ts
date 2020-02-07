@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import
 {
-    faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs, faIdCard
-    , faBicycle, faRunning, faHiking, faUser, faClock, faCalendar, faStopwatch, faMountain, faShoePrints, faSkiingNordic, faUserCircle, faSignInAlt, faSignOutAlt
+    faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs, faIdCard, faMapMarkerAlt, faIgloo,
+    faBicycle, faRunning, faHiking, faUser, faClock, faCalendar, faStopwatch, faMountain, faShoePrints, faSkiingNordic, faUserCircle, faSignInAlt, faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
+import { faHouzz } from '@fortawesome/free-brands-svg-icons';
 import { Observable, Observer } from 'rxjs';
 
 import { BreadcrumbLevel } from './breadcrumb-level';
@@ -36,6 +37,7 @@ export class CommonService
             dashboard: faTachometerAlt,
             options: faCogs,
             activity: faPeopleCarry,
+            waypointType: faMapMarkerAlt,
             setup: faCog,
             user: faUserCircle,
             login: faSignInAlt,
@@ -48,6 +50,11 @@ export class CommonService
             run: faRunning,
             hike: faHiking,
             skiup: faSkiingNordic,
+        },
+        waypointType: {
+            mountain: faMountain,
+            house: faHouzz,
+            igloo: faIgloo
         },
         track:
         {

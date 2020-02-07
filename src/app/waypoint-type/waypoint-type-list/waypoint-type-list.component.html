@@ -1,0 +1,15 @@
+<table class="table table-hover">
+    <thead class="table-bar">
+        <tr>
+            <th class="text-right" class="text-right" scope="col">#</th>
+            <th scope="col">Code</th>
+            <th scope="col">Icon</th>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let waypointType of waypointTypes; let i = index" tat-waypoint-type-list-item
+            [waypointType]="waypointType" [index]="i + 1">
+        </tr>
+    </tbody>
+</table>

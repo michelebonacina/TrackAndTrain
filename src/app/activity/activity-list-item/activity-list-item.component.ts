@@ -19,7 +19,7 @@ export class ActivityListItemComponent implements OnInit
 {
 
     @Input() activity: Activity;    // activity to be visualized
-    @Input() index: number;         // ordinal track index
+    @Input() index: number;         // ordinal activity index
 
     icons: any = {};    // fontawesome icons
 
