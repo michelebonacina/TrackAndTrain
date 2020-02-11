@@ -1,14 +1,37 @@
-<table class="table table-hover">
-    <thead class="table-bar">
-        <tr>
-            <th class="text-right" class="text-right"scope="col">#</th>
-            <th scope="col">Code</th>
-            <th scope="col">Icon</th>
-            <th scope="col">Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let activity of activities; let i = index" tat-activity-list-item [activity]="activity" [index]="i + 1">
-        </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <fa-icon [icon]="icons.activity"></fa-icon><span>Management</span>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a routerLink="/waypoint-type/new">
+                            <fa-icon [icon]="icons.new"></fa-icon>
+                            <span>New Activity</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col"></div>
+        <div class="col-8">
+            <table class="table table-hover">
+                <thead class="table-bar">
+                    <tr>
+                        <th class="text-right" class="text-right" scope="col">#</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Icon</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let activity of activities; let i = index" tat-activity-list-item [activity]="activity"
+                        [index]="i + 1">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

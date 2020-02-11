@@ -23,6 +23,7 @@ export class ActivityListComponent implements OnInit
 {
 
     activities: Activity[] = [];    // activities list
+    icons: any = {};                // fontawesome icons
 
     /**
      * Create a new component.
@@ -34,7 +35,10 @@ export class ActivityListComponent implements OnInit
         private activityService: ActivityService,
         private commonService: CommonService,
         private messageService: MessageService
-    ) { } // constructor
+    )
+    {
+        this.icons = this.commonService.icons.common;
+    } // constructor
 
     /**
      * Component initialization.
