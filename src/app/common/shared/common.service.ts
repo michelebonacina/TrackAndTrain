@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import
 {
-    faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs, faIdCard, faMapMarkerAlt, faIgloo,
+    faRoute, faGrinBeamSweat, faTachometerAlt, faCog, faPeopleCarry, faCogs, faIdCard, faMapMarkerAlt, faIgloo, faTrashAlt, faPlusSquare, faEdit,
     faBicycle, faRunning, faHiking, faUser, faClock, faCalendar, faStopwatch, faMountain, faShoePrints, faSkiingNordic, faUserCircle, faSignInAlt, faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 import { faHouzz } from '@fortawesome/free-brands-svg-icons';
@@ -42,7 +42,10 @@ export class CommonService
             user: faUserCircle,
             login: faSignInAlt,
             register: faIdCard,
-            logout: faSignOutAlt
+            logout: faSignOutAlt,
+            new: faPlusSquare,
+            edit: faEdit,
+            delete: faTrashAlt
         },
         activity:
         {

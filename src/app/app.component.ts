@@ -80,7 +80,7 @@ export class AppComponent implements OnInit
                     {
                         this.removeMessages();
                     }
-                    , 3000
+                    , 5000
                 );
             },
             (error) =>

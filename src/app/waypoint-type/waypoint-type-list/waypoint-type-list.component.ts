@@ -22,7 +22,8 @@ import { WaypointTypeService } from '../shared/waypoint-type.service';
 export class WaypointTypeListComponent implements OnInit
 {
 
-    waypointTypes: WaypointType[] = [];    // waypoint type list
+    waypointTypes: WaypointType[] = [];     // waypoint type list
+    icons: any = {};                        // fontawesome icons
 
     /**
      * Create a new component.
@@ -34,7 +35,10 @@ export class WaypointTypeListComponent implements OnInit
         private waypointTypeService: WaypointTypeService,
         private commonService: CommonService,
         private messageService: MessageService
-    ) { } // constructor
+    )
+    {
+        this.icons = this.commonService.icons.common;
+    } // constructor
 
     /**
      * Component initialization.
