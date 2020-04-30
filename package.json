@@ -28,7 +28,7 @@
     "bootstrap": "^4.4.1",
     "caniuse-lite": "^1.0.30001019",
     "express": "^4.17.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "mongoose": "^5.8.7",
